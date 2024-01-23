@@ -1,0 +1,4001 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>基于Python的电影数据分析大屏</title>
+                <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts-wordcloud.min.js"></script>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/themes/chalk.js"></script>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/jquery.min.js"></script>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/ResizeSensor.js"></script>
+
+            <link rel="stylesheet"  href="https://assets.pyecharts.org/assets/v5/jquery-ui.css">
+
+</head>
+<body >
+    <style>.box {  } </style>
+        <button onclick="downloadCfg()">Save Config</button>
+    <div class="box">
+                        <style>
+            .fl-table {
+                margin: 20px;
+                border-radius: 5px;
+                font-size: 12px;
+                border: none;
+                border-collapse: collapse;
+                max-width: 100%;
+                white-space: nowrap;
+                word-break: keep-all;
+            }
+
+            .fl-table th {
+                text-align: left;
+                font-size: 20px;
+            }
+
+            .fl-table tr {
+                display: table-row;
+                vertical-align: inherit;
+                border-color: inherit;
+            }
+
+            .fl-table tr:hover td {
+                background: #00d1b2;
+                color: #F8F8F8;
+            }
+
+            .fl-table td, .fl-table th {
+                border-style: none;
+                border-top: 1px solid #dbdbdb;
+                border-left: 1px solid #dbdbdb;
+                border-bottom: 3px solid #dbdbdb;
+                border-right: 1px solid #dbdbdb;
+                padding: .5em .55em;
+                font-size: 15px;
+            }
+
+            .fl-table td {
+                border-style: none;
+                font-size: 15px;
+                vertical-align: center;
+                border-bottom: 1px solid #dbdbdb;
+                border-left: 1px solid #dbdbdb;
+                border-right: 1px solid #dbdbdb;
+                height: 30px;
+            }
+
+            .fl-table tr:nth-child(even) {
+                background: #F8F8F8;
+            }
+        </style>
+        <div id="adaf090071834f4e8f4e51da165e9195" class="chart-container" style="">
+            <p class="title" style="font-size: 18px; font-weight:bold;" > </p>
+            <p class="subtitle" style="font-size: 12px;" > </p>
+            <table align="center" padding="2px" style="background:#293441; width:1350px; height:50px; font-size:25px; color:#C0C0C0;">
+    <thead>
+        <tr>
+            <th>基于Python的电影数据分析大屏</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+        </div>
+
+<br/>                <div id="bar_cmt2" class="chart-container" style="width:450px; height:350px; "></div>
+    <script>
+        var chart_bar_cmt2 = echarts.init(
+            document.getElementById('bar_cmt2'), 'chalk', {renderer: 'canvas'});
+        var option_bar_cmt2 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "bar",
+            "name": "\u8bc4\u4ef7\u6570",
+            "legendHoverLink": true,
+            "data": [
+                1,
+                4,
+                13,
+                57,
+                124,
+                51
+            ],
+            "realtimeSort": false,
+            "showBackground": false,
+            "stackStrategy": "samesign",
+            "cursor": "pointer",
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": true,
+                "margin": 8
+            },
+            "markPoint": {
+                "symbolSize": 35,
+                "label": {
+                    "show": true,
+                    "position": "inside",
+                    "color": "#fff",
+                    "margin": 8
+                },
+                "data": [
+                    {
+                        "name": "\u6700\u5927\u503c",
+                        "type": "max"
+                    }
+                ]
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u8bc4\u4ef7\u6570"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "right",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1,
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "xAxis": [
+        {
+            "name": "\u8bc4\u8bba\u6570",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "axisLabel": {
+                "show": true,
+                "margin": 8,
+                "fontSize": 8
+            },
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            },
+            "data": [
+                "0-10w",
+                "10w-20w",
+                "20w-30w",
+                "30w-50w",
+                "50w-100w",
+                "100w-300w"
+            ]
+        }
+    ],
+    "yAxis": [
+        {
+            "name": "\u7535\u5f71\u6570\u91cf",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "axisLabel": {
+                "rotate": 0
+            },
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            }
+        }
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u8bc4\u4ef7\u6570\u91cf\u533a\u95f4\u5206\u5e03-\u67f1\u5f62\u56fe",
+            "target": "blank",
+            "subtarget": "blank",
+            "left": "center",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
+        }
+    ],
+    "toolbox": {
+        "show": false,
+        "orient": "horizontal",
+        "itemSize": 15,
+        "itemGap": 10,
+        "left": "80%",
+        "feature": {
+            "saveAsImage": {
+                "type": "png",
+                "backgroundColor": "auto",
+                "connectedBackgroundColor": "#fff",
+                "show": true,
+                "title": "\u4fdd\u5b58\u4e3a\u56fe\u7247",
+                "pixelRatio": 1
+            },
+            "restore": {
+                "show": true,
+                "title": "\u8fd8\u539f"
+            },
+            "dataView": {
+                "show": true,
+                "title": "\u6570\u636e\u89c6\u56fe",
+                "readOnly": false,
+                "lang": [
+                    "\u6570\u636e\u89c6\u56fe",
+                    "\u5173\u95ed",
+                    "\u5237\u65b0"
+                ],
+                "backgroundColor": "#fff",
+                "textareaColor": "#fff",
+                "textareaBorderColor": "#333",
+                "textColor": "#000",
+                "buttonColor": "#c23531",
+                "buttonTextColor": "#fff"
+            },
+            "dataZoom": {
+                "show": true,
+                "title": {
+                    "zoom": "\u533a\u57df\u7f29\u653e",
+                    "back": "\u533a\u57df\u7f29\u653e\u8fd8\u539f"
+                },
+                "icon": {},
+                "filterMode": "filter"
+            },
+            "magicType": {
+                "show": true,
+                "type": [
+                    "line",
+                    "bar",
+                    "stack",
+                    "tiled"
+                ],
+                "title": {
+                    "line": "\u5207\u6362\u4e3a\u6298\u7ebf\u56fe",
+                    "bar": "\u5207\u6362\u4e3a\u67f1\u72b6\u56fe",
+                    "stack": "\u5207\u6362\u4e3a\u5806\u53e0",
+                    "tiled": "\u5207\u6362\u4e3a\u5e73\u94fa"
+                },
+                "icon": {}
+            }
+        }
+    }
+};
+        chart_bar_cmt2.setOption(option_bar_cmt2);
+    </script>
+<br/>                <div id="pie1" class="chart-container" style="width:450px; height:350px; "></div>
+    <script>
+        var chart_pie1 = echarts.init(
+            document.getElementById('pie1'), 'chalk', {renderer: 'canvas'});
+        var option_pie1 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "pie",
+            "name": "\u8bc4\u4ef7\u60c5\u611f\u5206\u5e03",
+            "colorBy": "data",
+            "legendHoverLink": true,
+            "selectedMode": false,
+            "selectedOffset": 10,
+            "clockwise": true,
+            "startAngle": 90,
+            "minAngle": 0,
+            "minShowLabelAngle": 0,
+            "avoidLabelOverlap": true,
+            "stillShowZeroSum": true,
+            "percentPrecision": 2,
+            "showEmptyCircle": true,
+            "emptyCircleStyle": {
+                "color": "lightgray",
+                "borderColor": "#000",
+                "borderWidth": 0,
+                "borderType": "solid",
+                "borderDashOffset": 0,
+                "borderCap": "butt",
+                "borderJoin": "bevel",
+                "borderMiterLimit": 10,
+                "opacity": 1
+            },
+            "data": [
+                {
+                    "name": "\u79ef\u6781",
+                    "value": 195
+                },
+                {
+                    "name": "\u4e2d\u6027",
+                    "value": 46
+                },
+                {
+                    "name": "\u6d88\u6781",
+                    "value": 9
+                }
+            ],
+            "radius": [
+                "30%",
+                "55%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "roseType": "radius",
+            "label": {
+                "show": true,
+                "margin": 8,
+                "formatter": "{b}: {c}"
+            },
+            "labelLine": {
+                "show": true,
+                "showAbove": false,
+                "length": 15,
+                "length2": 15,
+                "smooth": false,
+                "minTurnAngle": 90,
+                "maxSurfaceAngle": 90
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u79ef\u6781",
+                "\u4e2d\u6027",
+                "\u6d88\u6781"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "right",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1,
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "title": [
+        {
+            "show": true,
+            "text": "\u77ed\u8bc4\u60c5\u611f\u5206\u5e03-\u997c\u56fe",
+            "target": "blank",
+            "subtarget": "blank",
+            "left": "center",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
+        }
+    ]
+};
+        chart_pie1.setOption(option_pie1);
+    </script>
+<br/>                <div id="wc1" class="chart-container" style="width:450px; height:350px; "></div>
+    <script>
+        var chart_wc1 = echarts.init(
+            document.getElementById('wc1'), 'chalk', {renderer: 'canvas'});
+        var option_wc1 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "wordCloud",
+            "name": "\u7535\u5f71\u540d\u79f0",
+            "shape": "circle",
+            "rotationRange": [
+                -90,
+                90
+            ],
+            "rotationStep": 45,
+            "girdSize": 5,
+            "sizeRange": [
+                15,
+                20
+            ],
+            "data": [
+                {
+                    "name": "\u8096\u7533\u514b\u7684\u6551\u8d4e\u00a0/\u00a0The Shawshank Redemption\u00a0/\u00a0\u6708\u9ed1\u9ad8\u98de(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(23,151,134)"
+                    }
+                },
+                {
+                    "name": "\u98ce\u4e4b\u8c37\u00a0/\u00a0\u98a8\u306e\u8c37\u306e\u30ca\u30a6\u30b7\u30ab\u00a0/\u00a0\u98ce\u8c37\u5c11\u5973 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(3,130,135)"
+                    }
+                },
+                {
+                    "name": "\u8840\u6218\u94a2\u952f\u5cad\u00a0/\u00a0Hacksaw Ridge\u00a0/\u00a0\u94a2\u952f\u5cad ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(100,34,36)"
+                    }
+                },
+                {
+                    "name": "\u6050\u6016\u76f4\u64ad\u00a0/\u00a0\ub354 \ud14c\ub7ec \ub77c\uc774\ube0c\u00a0/\u00a0\u6b7b\u4ea1\u201c\u52a8\u201d\u65b0\u95fb(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(152,44,56)"
+                    }
+                },
+                {
+                    "name": "\u60ca\u9b42\u8bb0\u00a0/\u00a0Psycho\u00a0/\u00a0\u7cbe\u795e\u75c5\u60a3\u8005 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(14,12,127)"
+                    }
+                },
+                {
+                    "name": "\u9ed1\u5ba2\u5e1d\u56fd3\uff1a\u77e9\u9635\u9769\u547d\u00a0/\u00a0The Matrix Revolutions\u00a0/\u00a022\u4e16\u7eaa\u6740\u4eba\u7f51\u7edc3\uff1a\u60ca\u53d8\u4e16\u7eaa(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(36,50,90)"
+                    }
+                },
+                {
+                    "name": "\u4f60\u7684\u540d\u5b57\u3002\u00a0/\u00a0\u541b\u306e\u540d\u306f\u3002\u00a0/\u00a0\u4f60\u7684\u540d\u5b57 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(76,18,17)"
+                    }
+                },
+                {
+                    "name": "\u7535\u952f\u60ca\u9b42\u00a0/\u00a0Saw\u00a0/\u00a0\u6050\u60e7\u6597\u5ba4(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(46,106,76)"
+                    }
+                },
+                {
+                    "name": "\u4e09\u5757\u5e7f\u544a\u724c\u00a0/\u00a0Three Billboards Outside Ebbing, Missouri\u00a0/\u00a0\u5e7f\u544a\u724c\u6740\u4eba\u4e8b\u4ef6(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(64,114,15)"
+                    }
+                },
+                {
+                    "name": "\u8fbe\u62c9\u65af\u4e70\u5bb6\u4ff1\u4e50\u90e8\u00a0/\u00a0Dallas Buyers Club\u00a0/\u00a0\u7eed\u547d\u67ad\u96c4(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(144,135,59)"
+                    }
+                },
+                {
+                    "name": "\u5fc3\u8ff7\u5bab\u00a0/\u00a0\u6ba1\u68fa ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(119,103,118)"
+                    }
+                },
+                {
+                    "name": "\u75af\u72c2\u539f\u59cb\u4eba\u00a0/\u00a0The Croods\u00a0/\u00a0\u53e4\u9c81\u5bb6\u65cf(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(133,83,31)"
+                    }
+                },
+                {
+                    "name": "\u8c0d\u5f71\u91cd\u91cd3\u00a0/\u00a0The Bourne Ultimatum\u00a0/\u00a0\u53db\u8c0d\u8ffd\u51fb3\uff1a\u6700\u540e\u901a\u7252(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(39,33,107)"
+                    }
+                },
+                {
+                    "name": "\u82f1\u96c4\u672c\u8272\u00a0/\u00a0A Better Tomorrow ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(66,102,149)"
+                    }
+                },
+                {
+                    "name": "\u4e0a\u5e1d\u4e4b\u57ce\u00a0/\u00a0Cidade de Deus\u00a0/\u00a0\u65e0\u4e3b\u4e4b\u57ce(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(59,114,104)"
+                    }
+                },
+                {
+                    "name": "\u7231\u5728\u5348\u591c\u964d\u4e34\u524d\u00a0/\u00a0Before Midnight\u00a0/\u00a0\u60c5\u7ea6\u534a\u751f(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(73,22,34)"
+                    }
+                },
+                {
+                    "name": "\u8352\u86ee\u6545\u4e8b\u00a0/\u00a0Relatos salvajes\u00a0/\u00a0\u86ee\u8352\u6545\u4e8b ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(85,159,91)"
+                    }
+                },
+                {
+                    "name": "\u7eb5\u6a2a\u56db\u6d77\u00a0/\u00a0\u7dc3\u6a2a\u56db\u6d77\u00a0/\u00a0Once a Thief",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(36,37,4)"
+                    }
+                },
+                {
+                    "name": "\u6d77\u8857\u65e5\u8bb0\u00a0/\u00a0\u6d77\u8857diary\u00a0/\u00a0\u6d77\u8857\u5973\u5b69\u65e5\u8bb0(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(48,128,18)"
+                    }
+                },
+                {
+                    "name": "\u7eff\u91cc\u5947\u8ff9\u00a0/\u00a0The Green Mile\u00a0/\u00a0\u7eff\u8272\u5947\u8ff9(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(26,69,113)"
+                    }
+                },
+                {
+                    "name": "\u5362\u65fa\u8fbe\u996d\u5e97\u00a0/\u00a0Hotel Rwanda\u00a0/\u00a0\u5362\u5b89\u8fbe\u996d\u5e97(\u53f0)",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(113,132,3)"
+                    }
+                },
+                {
+                    "name": "\u5c0f\u4e11\u00a0/\u00a0Joker\u00a0/\u00a0\u5c0f\u4e11\u8d77\u6e90\u7535\u5f71\uff1a\u7f57\u5bc6\u6b27 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(62,47,114)"
+                    }
+                },
+                {
+                    "name": "\u8bb0\u5fc6\u788e\u7247\u00a0/\u00a0Memento\u00a0/\u00a0\u51f6\u5fc3\u4eba(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(79,2,17)"
+                    }
+                },
+                {
+                    "name": "\u80cc\u9760\u80cc\uff0c\u8138\u5bf9\u8138\u00a0/\u00a0\u80cc\u5bf9\u80cc\uff0c\u8138\u5bf9\u8138 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(11,30,58)"
+                    }
+                },
+                {
+                    "name": "\u75af\u72c2\u7684\u77f3\u5934\u00a0/\u00a0Crazy Stone",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(141,61,130)"
+                    }
+                },
+                {
+                    "name": "\u5fc3\u7075\u5947\u65c5\u00a0/\u00a0Soul\u00a0/\u00a0\u7075\u9b42\u5947\u9047\u8bb0(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(160,66,140)"
+                    }
+                },
+                {
+                    "name": "\u96e8\u4e2d\u66f2\u00a0/\u00a0Singin' in the Rain\u00a0/\u00a0\u4e07\u82b1\u5b09\u6625(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(19,34,18)"
+                    }
+                },
+                {
+                    "name": "2001\u592a\u7a7a\u6f2b\u6e38\u00a0/\u00a02001: A Space Odyssey\u00a0/\u00a02001\uff1a\u661f\u9645\u6f2b\u6e38 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(111,73,101)"
+                    }
+                },
+                {
+                    "name": "\u5c81\u6708\u795e\u5077\u00a0/\u00a0\u6b72\u6708\u795e\u5077\u00a0/\u00a01969\u592a\u7a7a\u6f2b\u6e38 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(27,133,110)"
+                    }
+                },
+                {
+                    "name": "\u65e0\u95f4\u90532\u00a0/\u00a0\u7121\u9593\u9053II\u00a0/\u00a0\u65e0\u95f4\u9053\u524d\u4f20 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(118,118,125)"
+                    }
+                },
+                {
+                    "name": "\u4e03\u6b66\u58eb\u00a0/\u00a0\u4e03\u4eba\u306e\u4f8d\u00a0/\u00a0\u4e03\u4fa0\u56db\u4e49(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(117,121,134)"
+                    }
+                },
+                {
+                    "name": "\u9633\u5149\u59d0\u59b9\u6dd8\u00a0/\u00a0\uc368\ub2c8\u00a0/\u00a0\u9633\u5149\u59ca\u59b9\u6dd8(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(15,78,141)"
+                    }
+                },
+                {
+                    "name": "\u6211\u662f\u5c71\u59c6\u00a0/\u00a0I Am Sam\u00a0/\u00a0\u4e0d\u4e00\u6837\u7684\u7238\u7238(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(98,106,0)"
+                    }
+                },
+                {
+                    "name": "\u5934\u8111\u7279\u5de5\u961f\u00a0/\u00a0Inside Out\u00a0/\u00a0\u73a9\u8f6c\u8111\u670b\u53cb(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(28,136,128)"
+                    }
+                },
+                {
+                    "name": "\u4fa7\u8033\u503e\u542c\u00a0/\u00a0\u8033\u3092\u3059\u307e\u305b\u3070\u00a0/\u00a0\u5fc3\u4e4b\u8c37(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(12,137,132)"
+                    }
+                },
+                {
+                    "name": "\u54c8\u5229\u00b7\u6ce2\u7279\u4e0e\u706b\u7130\u676f\u00a0/\u00a0Harry Potter and the Goblet of Fire\u00a0/\u00a0\u54c8\u5229\u6ce2\u72794\uff1a\u706b\u676f\u7684\u8003\u9a8c(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(94,39,42)"
+                    }
+                },
+                {
+                    "name": "\u9a6f\u9f99\u9ad8\u624b\u00a0/\u00a0How to Train Your Dragon\u00a0/\u00a0\u9a6f\u9f99\u8bb0(\u6e2f)",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(101,120,147)"
+                    }
+                },
+                {
+                    "name": "\u5e78\u798f\u7ec8\u70b9\u7ad9\u00a0/\u00a0The Terminal\u00a0/\u00a0\u673a\u573a\u5ba2\u8fd0\u7ad9(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(3,43,63)"
+                    }
+                },
+                {
+                    "name": "\u4e00\u4e2a\u53eb\u6b27\u7ef4\u7684\u7537\u4eba\u51b3\u5b9a\u53bb\u6b7b\u00a0/\u00a0En man som heter Ove\u00a0/\u00a0\u660e\u5929\u522b\u518d\u6765\u6572\u95e8(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(157,150,134)"
+                    }
+                },
+                {
+                    "name": "\u5c0f\u68ee\u6797 \u51ac\u6625\u7bc7\u00a0/\u00a0\u30ea\u30c8\u30eb\u30fb\u30d5\u30a9\u30ec\u30b9\u30c8 \u51ac\u30fb\u6625\u00a0/\u00a0\u5c0f\u68ee\u98df\u5149",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(7,38,69)"
+                    }
+                },
+                {
+                    "name": "\u6559\u72363\u00a0/\u00a0The Godfather: Part III\u00a0/\u00a0\u6559\u7236\u7b2c\u4e09\u96c6 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(43,158,85)"
+                    }
+                },
+                {
+                    "name": "\u602a\u517d\u7535\u529b\u516c\u53f8\u00a0/\u00a0Monsters, Inc.\u00a0/\u00a0\u602a\u517d\u516c\u53f8(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(144,82,58)"
+                    }
+                },
+                {
+                    "name": "\u73a9\u5177\u603b\u52a8\u54583\u00a0/\u00a0Toy Story 3\u00a0/\u00a0\u53cd\u6597\u5947\u51753(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(92,86,154)"
+                    }
+                },
+                {
+                    "name": "\u50b2\u6162\u4e0e\u504f\u89c1\u00a0/\u00a0Pride & Prejudice\u00a0/\u00a0\u50b2\u6162\u4e0e\u504f\u89c12005 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(21,5,31)"
+                    }
+                },
+                {
+                    "name": "\u65b0\u4e16\u754c\u00a0/\u00a0\uc2e0\uc138\uacc4\u00a0/\u00a0\u6697\u9ed1\u65b0\u4e16\u754c(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(111,57,29)"
+                    }
+                },
+                {
+                    "name": "\u8424\u706b\u4e4b\u68ee\u00a0/\u00a0\u86cd\u706b\u306e\u675c\u3078\u00a0/\u00a0\u8424\u706b\u4e4b\u793e ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(59,66,97)"
+                    }
+                },
+                {
+                    "name": "\u8336\u9986\u00a0/\u00a0The Teahouse",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(36,74,25)"
+                    }
+                },
+                {
+                    "name": "\u91dc\u5c71\u884c\u00a0/\u00a0\ubd80\uc0b0\ud589\u00a0/\u00a0\u5c38\u6740\u5217\u8f66(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(4,26,47)"
+                    }
+                },
+                {
+                    "name": "\u88ab\u89e3\u6551\u7684\u59dc\u6208\u00a0/\u00a0Django Unchained\u00a0/\u00a0\u88ab\u89e3\u653e\u7684\u59dc\u6208 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(116,160,143)"
+                    }
+                },
+                {
+                    "name": "\u795e\u5077\u5976\u7238\u00a0/\u00a0Despicable Me\u00a0/\u00a0\u5351\u9119\u7684\u6211 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(69,113,29)"
+                    }
+                },
+                {
+                    "name": "\u544a\u767d\u00a0/\u00a0\u81ea\u767d ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(53,32,17)"
+                    }
+                },
+                {
+                    "name": "\u739b\u4e3d\u548c\u9a6c\u514b\u601d\u00a0/\u00a0Mary and Max\u00a0/\u00a0\u5de7\u514b\u529b\u60c5\u7f18(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(152,9,69)"
+                    }
+                },
+                {
+                    "name": "\u54ea\u5412\u95f9\u6d77\u00a0/\u00a0Prince Nezha's Triumph Against Dragon King ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(119,2,134)"
+                    }
+                },
+                {
+                    "name": "\u8272\uff0c\u6212\u00a0/\u00a0\u8272|\u6212 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(146,42,90)"
+                    }
+                },
+                {
+                    "name": "\u4e5d\u54c1\u829d\u9ebb\u5b98\u00a0/\u00a0\u4e5d\u54c1\u829d\u9ebb\u5b98\u4e4b\u767d\u9762\u5305\u9752\u5929 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(39,61,40)"
+                    }
+                },
+                {
+                    "name": "\u5927\u9c7c\u00a0/\u00a0Big Fish\u00a0/\u00a0\u5927\u9c7c\u5947\u7f18(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(65,30,136)"
+                    }
+                },
+                {
+                    "name": "\u559c\u5bb4\u00a0/\u00a0\u56cd\u5bb4\u00a0/\u00a0The Wedding Banquet",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(149,44,72)"
+                    }
+                },
+                {
+                    "name": "\u6a21\u4eff\u6e38\u620f\u00a0/\u00a0The Imitation Game\u00a0/\u00a0\u89e3\u7801\u6e38\u620f(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(92,149,96)"
+                    }
+                },
+                {
+                    "name": "\u5934\u53f7\u73a9\u5bb6\u00a0/\u00a0Ready Player One\u00a0/\u00a0\u73a9\u5bb6\u4e00\u53f7 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(9,51,111)"
+                    }
+                },
+                {
+                    "name": "\u5c04\u96d5\u82f1\u96c4\u4f20\u4e4b\u4e1c\u6210\u897f\u5c31\u00a0/\u00a0\u5c04\u9d70\u82f1\u96c4\u50b3\u4e4b\u6771\u6210\u897f\u5c31\u00a0/\u00a0\u4e1c\u6210\u897f\u5c31 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(124,96,131)"
+                    }
+                },
+                {
+                    "name": "\u82b1\u6837\u5e74\u534e\u00a0/\u00a0\u82b1\u6a23\u5e74\u83ef\u00a0/\u00a0In the Mood for Love",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(50,112,83)"
+                    }
+                },
+                {
+                    "name": "\u5fe0\u72ac\u516b\u516c\u7269\u8bed\u00a0/\u00a0\u30cf\u30c1\u516c\u7269\u8a9e\u00a0/\u00a0\u516b\u5343\u516c\u7269\u8bed ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(121,122,152)"
+                    }
+                },
+                {
+                    "name": "\u5c0f\u5077\u5bb6\u65cf\u00a0/\u00a0\u4e07\u5f15\u304d\u5bb6\u65cf\u00a0/\u00a0Shoplifters ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(12,39,147)"
+                    }
+                },
+                {
+                    "name": "\u9738\u738b\u522b\u59ec\u00a0/\u00a0\u518d\u89c1\uff0c\u6211\u7684\u59be ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(15,129,144)"
+                    }
+                },
+                {
+                    "name": "\u6b65\u5c65\u4e0d\u505c\u00a0/\u00a0\u6b69\u3044\u3066\u3082 \u6b69\u3044\u3066\u3082\u00a0/\u00a0\u6a2a\u5c71\u5bb6\u4e4b\u5473(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(73,18,79)"
+                    }
+                },
+                {
+                    "name": "\u65e0\u803b\u6df7\u86cb\u00a0/\u00a0Inglourious Basterds\u00a0/\u00a0\u5e0c\u9b54\u649e\u6b63\u6740\u4eba\u72c2(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(81,28,50)"
+                    }
+                },
+                {
+                    "name": "\u5d16\u4e0a\u7684\u6ce2\u599e\u00a0/\u00a0\u5d16\u306e\u4e0a\u306e\u30dd\u30cb\u30e7\u00a0/\u00a0\u60ac\u5d16\u4e0a\u7684\u91d1\u9c7c\u59ec ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(90,111,37)"
+                    }
+                },
+                {
+                    "name": "\u5343\u94a7\u4e00\u53d1\u00a0/\u00a0Gattaca\u00a0/\u00a0\u53d8\u79cd\u5f02\u715e(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(74,79,102)"
+                    }
+                },
+                {
+                    "name": "\u82b1\u675f\u822c\u7684\u604b\u7231\u00a0/\u00a0\u82b1\u675f\u307f\u305f\u3044\u306a\u604b\u3092\u3057\u305f\u00a0/\u00a0\u5979\u548c\u4ed6\u7684\u604b\u7231\u82b1\u671f(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(110,28,9)"
+                    }
+                },
+                {
+                    "name": "\u8424\u706b\u866b\u4e4b\u5893\u00a0/\u00a0\u706b\u5782\u308b\u306e\u5893\u00a0/\u00a0\u518d\u89c1\u8424\u706b\u866b(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(150,10,55)"
+                    }
+                },
+                {
+                    "name": "\u5f57\u661f\u6765\u7684\u90a3\u4e00\u591c\u00a0/\u00a0Coherence\u00a0/\u00a0\u76f8\u5e72\u6027 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(149,7,95)"
+                    }
+                },
+                {
+                    "name": "\u5947\u8ff9\u7537\u5b69\u00a0/\u00a0Wonder\u00a0/\u00a0\u5947\u8ff9",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(29,78,101)"
+                    }
+                },
+                {
+                    "name": "\u54c8\u5229\u00b7\u6ce2\u7279\u4e0e\u6b7b\u4ea1\u5723\u5668(\u4e0a)\u00a0/\u00a0Harry Potter and the Deathly Hallows: Part 1\u00a0/\u00a0\u54c8\u5229\u6ce2\u72797\uff1a\u6b7b\u795e\u7684\u5723\u72691(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(120,15,137)"
+                    }
+                },
+                {
+                    "name": "\u9ed1\u5ba2\u5e1d\u56fd2\uff1a\u91cd\u88c5\u4e0a\u9635\u00a0/\u00a0The Matrix Reloaded\u00a0/\u00a022\u4e16\u7eaa\u6740\u4eba\u7f51\u7edc2\uff1a\u51b3\u6218\u672a\u6765(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(132,115,132)"
+                    }
+                },
+                {
+                    "name": "\u4e8c\u5341\u4e8c\u00a0/\u00a0Twenty Two ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(87,50,47)"
+                    }
+                },
+                {
+                    "name": "\u8840\u94bb\u00a0/\u00a0Blood Diamond\u00a0/\u00a0\u8840\u94bb\u77f3(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(68,25,73)"
+                    }
+                },
+                {
+                    "name": "\u6218\u4e89\u4e4b\u738b\u00a0/\u00a0Lord of War\u00a0/\u00a0\u519b\u706b\u4e4b\u738b(\u53f0",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(84,136,50)"
+                    }
+                },
+                {
+                    "name": "\u706b\u661f\u6551\u63f4\u00a0/\u00a0The Martian\u00a0/\u00a0\u706b\u661f\u4efb\u52a1(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(32,155,142)"
+                    }
+                },
+                {
+                    "name": "\u623f\u95f4\u00a0/\u00a0Room\u00a0/\u00a0\u4e0d\u5b58\u5728\u7684\u623f\u95f4(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(21,54,112)"
+                    }
+                },
+                {
+                    "name": "\u65e0\u654c\u7834\u574f\u738b\u00a0/\u00a0Wreck-It Ralph\u00a0/\u00a0\u7834\u574f\u738b\u62c9\u5c14\u592b ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(17,140,60)"
+                    }
+                },
+                {
+                    "name": "\u9b42\u65ad\u84dd\u6865\u00a0/\u00a0Waterloo Bridge\u00a0/\u00a0\u6ed1\u94c1\u5362\u6865 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(20,108,22)"
+                    }
+                },
+                {
+                    "name": "\u5343\u5e74\u5973\u4f18\u00a0/\u00a0\u5343\u5e74\u5973\u512a\u00a0/\u00a0Millennium Actress",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(46,116,105)"
+                    }
+                },
+                {
+                    "name": "\u767d\u65e5\u68a6\u60f3\u5bb6\u00a0/\u00a0The Secret Life of Walter Mitty\u00a0/\u00a0\u53d1\u68a6\u738b\u5927\u5386\u9669(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(154,64,154)"
+                    }
+                },
+                {
+                    "name": "\u8c0d\u5f71\u91cd\u91cd2\u00a0/\u00a0The Bourne Supremacy\u00a0/\u00a0\u53db\u8c0d\u8ffd\u51fb2\uff1a\u673a\u5bc6\u5708\u5957(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(78,94,54)"
+                    }
+                },
+                {
+                    "name": "\u54c8\u5229\u00b7\u6ce2\u7279\u4e0e\u51e4\u51f0\u793e\u00a0/\u00a0Harry Potter and the Order of the Phoenix\u00a0/\u00a0\u54c8\u5229\u6ce2\u72795\uff1a\u51e4\u51f0\u4f1a\u7684\u5bc6\u4ee4(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(45,136,108)"
+                    }
+                },
+                {
+                    "name": "\u9ad8\u5c71\u4e0b\u7684\u82b1\u73af\u00a0/\u00a0\u536b\u56fd\u519b\u9b42(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(81,112,9)"
+                    }
+                },
+                {
+                    "name": "\u8718\u86db\u4fa0\uff1a\u5e73\u884c\u5b87\u5b99\u00a0/\u00a0Spider-Man: Into the Spider-Verse\u00a0/\u00a0\u8718\u86db\u4fa0\uff1a\u65b0\u7eaa\u5143 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(126,128,19)"
+                    }
+                },
+                {
+                    "name": "\u5f31\u70b9\u00a0/\u00a0The Blind Side\u00a0/\u00a0\u5b88\u62a4\u6709\u5fc3\u4eba(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(78,3,12)"
+                    }
+                },
+                {
+                    "name": "\u8c0d\u5f71\u91cd\u91cd\u00a0/\u00a0The Bourne Identity\u00a0/\u00a0\u53db\u8c0d\u8ffd\u51fb(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(153,157,122)"
+                    }
+                },
+                {
+                    "name": "\u963f\u98de\u6b63\u4f20\u00a0/\u00a0\u963f\u98db\u6b63\u50b3\u00a0/\u00a0Days of Being Wild",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(139,136,49)"
+                    }
+                },
+                {
+                    "name": "\u6717\u8bfb\u8005\u00a0/\u00a0The Reader\u00a0/\u00a0\u4e3a\u7231\u6717\u8bfb(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(56,104,70)"
+                    }
+                },
+                {
+                    "name": "\u5927\u7ea2\u706f\u7b3c\u9ad8\u9ad8\u6302\u00a0/\u00a0Raise The Red Lantern ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(105,31,120)"
+                    }
+                },
+                {
+                    "name": "\u518d\u6b21\u51fa\u53d1\u4e4b\u7ebd\u7ea6\u9047\u89c1\u4f60\u00a0/\u00a0Begin Again\u00a0/\u00a0\u518d\u6b21\u51fa\u53d1 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(70,38,112)"
+                    }
+                },
+                {
+                    "name": "\u8299\u84c9\u9547\u00a0/\u00a0Hibiscus Town",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(70,102,160)"
+                    }
+                },
+                {
+                    "name": "\u65b0\u9f99\u95e8\u5ba2\u6808\u00a0/\u00a0\u65b0\u9f8d\u9580\u5ba2\u68e7\u00a0/\u00a0New Dragon Gate Inn",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(100,75,34)"
+                    }
+                },
+                {
+                    "name": "\u7f57\u751f\u95e8\u00a0/\u00a0\u7f85\u751f\u9580\u00a0/\u00a0Rashomon",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(148,6,123)"
+                    }
+                },
+                {
+                    "name": "\u7231\u4e50\u4e4b\u57ce\u00a0/\u00a0La La Land\u00a0/\u00a0\u661f\u58f0\u68a6\u91cc\u4eba(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(21,37,108)"
+                    }
+                },
+                {
+                    "name": "\u7206\u88c2\u9f13\u624b\u00a0/\u00a0Whiplash\u00a0/\u00a0\u9f13\u52a8\u771f\u6211(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(53,9,130)"
+                    }
+                },
+                {
+                    "name": "\u51b0\u5ddd\u65f6\u4ee3\u00a0/\u00a0Ice Age\u00a0/\u00a0\u51b0\u6cb3\u4e16\u7eaa ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(59,23,49)"
+                    }
+                },
+                {
+                    "name": "\u6050\u6016\u6e38\u8f6e\u00a0/\u00a0Triangle\u00a0/\u00a0\u6c6a\u6d0b\u8840\u8ff7\u5bae(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(2,152,20)"
+                    }
+                },
+                {
+                    "name": "\u726f\u5cad\u8857\u5c11\u5e74\u6740\u4eba\u4e8b\u4ef6\u00a0/\u00a0\u726f\u5dba\u8857\u5c11\u5e74\u6bba\u4eba\u4e8b\u4ef6\u00a0/\u00a0A Brighter Summer Day",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(90,81,20)"
+                    }
+                },
+                {
+                    "name": "\u8d2b\u6c11\u7a9f\u7684\u767e\u4e07\u5bcc\u7fc1\u00a0/\u00a0Slumdog Millionaire\u00a0/\u00a0\u4e00\u767e\u4e07\u96f6\u4e00\u591c(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(52,33,48)"
+                    }
+                },
+                {
+                    "name": "\u4e1c\u4eac\u6559\u7236\u00a0/\u00a0\u6771\u4eac\u30b4\u30c3\u30c9\u30d5\u30a1\u30fc\u30b6\u30fc\u30ba\u00a0/\u00a0Tokyo Godfathers",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(153,136,139)"
+                    }
+                },
+                {
+                    "name": "\u4e1c\u90aa\u897f\u6bd2\u00a0/\u00a0\u6771\u90aa\u897f\u6bd2\u00a0/\u00a0Ashes of Time",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(125,50,22)"
+                    }
+                },
+                {
+                    "name": "\u9b54\u5973\u5b85\u6025\u4fbf\u00a0/\u00a0\u9b54\u5973\u306e\u5b85\u6025\u4fbf\u00a0/\u00a0\u9b54\u5973\u742a\u742a(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(127,114,140)"
+                    }
+                },
+                {
+                    "name": "\u9057\u613f\u6e05\u5355\u00a0/\u00a0The Bucket List\u00a0/\u00a0\u73a9\u8f6c\u8eab\u524d\u4e8b(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(20,128,82)"
+                    }
+                },
+                {
+                    "name": "\u5927\u4f5b\u666e\u62c9\u65af\u00a0/\u00a0The Great Buddha+",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(14,128,110)"
+                    }
+                },
+                {
+                    "name": "\u4f60\u770b\u8d77\u6765\u597d\u50cf\u5f88\u597d\u5403\u00a0/\u00a0\u304a\u307e\u3048\u3046\u307e\u305d\u3046\u3060\u306a\u00a0/\u00a0\u4f60\u770b\u8d77\u6765\u5f88\u597d\u5403(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(16,66,40)"
+                    }
+                },
+                {
+                    "name": "\u53ef\u53ef\u897f\u91cc\u00a0/\u00a0Kekexili: Mountain Patrol",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(131,4,138)"
+                    }
+                },
+                {
+                    "name": "\u9ed1\u5929\u9e45\u00a0/\u00a0Black Swan\u00a0/\u00a0\u593a\u547d\u9ed1\u5929\u9e45 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(124,45,115)"
+                    }
+                },
+                {
+                    "name": "\u57ce\u5e02\u4e4b\u5149\u00a0/\u00a0City Lights\u00a0/\u00a0City Lights: A Comedy Romance in Pantomime ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(68,138,31)"
+                    }
+                },
+                {
+                    "name": "\u771f\u7231\u81f3\u4e0a\u00a0/\u00a0Love Actually\u00a0/\u00a0\u771f\u7684\u604b\u7231\u4e86(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(155,134,76)"
+                    }
+                },
+                {
+                    "name": "\u6e90\u4ee3\u7801\u00a0/\u00a0Source Code\u00a0/\u00a0\u542f\u52a8\u539f\u59cb\u7801(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(117,48,154)"
+                    }
+                },
+                {
+                    "name": "\u6d77\u8fb9\u7684\u66fc\u5f7b\u65af\u7279\u00a0/\u00a0Manchester by the Sea\u00a0/\u00a0\u60c5\u7cfb\u6d77\u8fb9\u4e4b\u57ce(\u6e2f)",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(15,6,141)"
+                    }
+                },
+                {
+                    "name": "\u96e8\u4eba\u00a0/\u00a0Rain Man\u00a0/\u00a0\u624b\u8db3\u60c5\u672a\u4e86(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(130,101,141)"
+                    }
+                },
+                {
+                    "name": "\u6ce2\u897f\u7c73\u4e9a\u72c2\u60f3\u66f2\u00a0/\u00a0Bohemian Rhapsody\u00a0/\u00a0\u6ce2\u5e0c\u7c73\u4e9a\u72c2\u60f3\u66f2\uff1a\u6447\u6eda\u4f20\u8bf4(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(128,131,122)"
+                    }
+                },
+                {
+                    "name": "\u672b\u8def\u72c2\u82b1\u00a0/\u00a0Thelma & Louise\u00a0/\u00a0\u585e\u5c14\u739b\u4e0e\u8def\u6613\u4e1d ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(134,116,110)"
+                    }
+                },
+                {
+                    "name": "\u521d\u604b\u8fd9\u4ef6\u5c0f\u4e8b\u00a0/\u00a0\u0e2a\u0e34\u0e48\u0e07\u0e40\u0e25\u0e47\u0e01\u0e40\u0e25\u0e47\u0e01\u0e17\u0e35\u0e48\u0e40\u0e23\u0e35\u0e22\u0e01\u0e27\u0e48\u0e32...\u0e23\u0e31\u0e01\u00a0/\u00a0\u521d\u604b\u90a3\u4ef6\u5c0f\u4e8b(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(32,112,37)"
+                    }
+                },
+                {
+                    "name": "\u9752\u86c7\u00a0/\u00a0Green Snake",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(102,2,69)"
+                    }
+                },
+                {
+                    "name": "\u4eba\u5de5\u667a\u80fd\u00a0/\u00a0A.I. Artificial Intelligence\u00a0/\u00a0AI\u4eba\u5de5\u667a\u6167",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(120,13,24)"
+                    }
+                },
+                {
+                    "name": "\u604b\u604b\u7b14\u8bb0\u672c\u00a0/\u00a0The Notebook\u00a0/\u00a0\u5fd8\u4e86\u00b7\u5fd8\u4e0d\u4e86(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(83,160,117)"
+                    }
+                },
+                {
+                    "name": "\u864e\u53e3\u8131\u9669\u00a0/\u00a0La grande vadrouille\u00a0/\u00a0\u6a2a\u51b2\u76f4\u649e\u51fa\u91cd\u56f4(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(128,106,106)"
+                    }
+                },
+                {
+                    "name": "\u7ec8\u7ed3\u80052\uff1a\u5ba1\u5224\u65e5\u00a0/\u00a0Terminator 2: Judgment Day\u00a0/\u00a0\u672a\u6765\u6218\u58eb2(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(152,41,156)"
+                    }
+                },
+                {
+                    "name": "\u75af\u72c2\u7684\u9ea6\u514b\u65af4\uff1a\u72c2\u66b4\u4e4b\u8def\u00a0/\u00a0Mad Max: Fury Road\u00a0/\u00a0\u672b\u65e5\u5148\u950b\uff1a\u6218\u7532\u98de\u8f66(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(109,140,87)"
+                    }
+                },
+                {
+                    "name": "\u672a\u9ebb\u7684\u90e8\u5c4b\u00a0/\u00a0Perfect Blue\u00a0/\u00a0\u84dd\u8272\u6050\u60e7(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(156,26,35)"
+                    }
+                },
+                {
+                    "name": "\u65f6\u7a7a\u604b\u65c5\u4eba\u00a0/\u00a0About Time\u00a0/\u00a0\u56de\u5230\u6700\u7231\u7684\u4e00\u5929(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(155,45,31)"
+                    }
+                },
+                {
+                    "name": "\u65e0\u4eba\u77e5\u6653\u00a0/\u00a0\u8ab0\u3082\u77e5\u3089\u306a\u3044\u00a0/\u00a0\u8c01\u77e5\u8d64\u5b50\u5fc3(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(120,1,61)"
+                    }
+                },
+                {
+                    "name": "\u94a2\u7434\u5bb6\u00a0/\u00a0The Pianist\u00a0/\u00a0\u94a2\u7434\u6218\u66f2(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(75,155,153)"
+                    }
+                },
+                {
+                    "name": "\u4e71\u4e16\u4f73\u4eba\u00a0/\u00a0Gone with the Wind\u00a0/\u00a0\u98d8",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(134,36,106)"
+                    }
+                },
+                {
+                    "name": "\u98de\u5c4b\u73af\u6e38\u8bb0\u00a0/\u00a0Up\u00a0/\u00a0\u51b2\u5929\u6551\u5175(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(131,58,134)"
+                    }
+                },
+                {
+                    "name": "\u7d20\u5a9b\u00a0/\u00a0\uc18c\uc6d0\u00a0/\u00a0\u8bb8\u613f ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(79,41,79)"
+                    }
+                },
+                {
+                    "name": "\u5341\u4e8c\u6012\u6c49\u00a0/\u00a012 Angry Men\u00a0/\u00a012\u6012\u6c49 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(101,148,105)"
+                    }
+                },
+                {
+                    "name": "\u54c8\u5c14\u7684\u79fb\u52a8\u57ce\u5821\u00a0/\u00a0\u30cf\u30a6\u30eb\u306e\u52d5\u304f\u57ce\u00a0/\u00a0\u54c8\u5c14\u79fb\u52a8\u57ce\u5821(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(52,25,86)"
+                    }
+                },
+                {
+                    "name": "\u8ba9\u5b50\u5f39\u98de\u00a0/\u00a0\u8ba9\u5b50\u5f39\u98de\u4e00\u4f1a\u513f ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(120,79,19)"
+                    }
+                },
+                {
+                    "name": "\u4f55\u4ee5\u4e3a\u5bb6\u00a0/\u00a0\u0643\u0641\u0631\u0646\u0627\u062d\u0648\u0645\u00a0/\u00a0\u8fe6\u767e\u519c ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(9,11,131)"
+                    }
+                },
+                {
+                    "name": "\u6454\u8de4\u5427\uff01\u7238\u7238\u00a0/\u00a0Dangal\u00a0/\u00a0\u6211\u548c\u6211\u7684\u51a0\u519b\u5973\u513f(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(21,20,149)"
+                    }
+                },
+                {
+                    "name": "\u732b\u9f20\u6e38\u620f\u00a0/\u00a0Catch Me If You Can\u00a0/\u00a0\u900d\u9065\u6cd5\u5916 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(70,133,91)"
+                    }
+                },
+                {
+                    "name": "\u5929\u7a7a\u4e4b\u57ce\u00a0/\u00a0\u5929\u7a7a\u306e\u57ce\u30e9\u30d4\u30e5\u30bf\u00a0/\u00a0\u5929\u7a7a\u4e4b\u57ce\u62c9\u666e\u4ed6 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(146,132,8)"
+                    }
+                },
+                {
+                    "name": "\u9b3c\u5b50\u6765\u4e86\u00a0/\u00a0Devils on the Doorstep",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(137,13,46)"
+                    }
+                },
+                {
+                    "name": "\u6d77\u8482\u548c\u7237\u7237\u00a0/\u00a0Heidi\u00a0/\u00a0\u98d8\u96f6\u71d5(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(139,137,75)"
+                    }
+                },
+                {
+                    "name": "\u5c11\u5e74\u6d3e\u7684\u5947\u5e7b\u6f02\u6d41\u00a0/\u00a0Life of Pi\u00a0/\u00a0\u5c11\u5e74Pi\u7684\u5947\u5e7b\u6f02\u6d41 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(85,36,103)"
+                    }
+                },
+                {
+                    "name": "\u5927\u8bdd\u897f\u6e38\u4e4b\u6708\u5149\u5b9d\u76d2\u00a0/\u00a0\u897f\u904a\u8a18\u7b2c\u58f9\u4f70\u96f6\u58f9\u56de\u4e4b\u6708\u5149\u5bf6\u76d2\u00a0/\u00a0\u897f\u6e38\u8bb0101\u56de\u6708\u5149\u5b9d\u76d2 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(149,59,81)"
+                    }
+                },
+                {
+                    "name": "\u5c0f\u68ee\u6797 \u590f\u79cb\u7bc7\u00a0/\u00a0\u30ea\u30c8\u30eb\u30fb\u30d5\u30a9\u30ec\u30b9\u30c8 \u590f\u30fb\u79cb\u00a0/\u00a0\u5c0f\u68ee\u98df\u5149",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(20,23,10)"
+                    }
+                },
+                {
+                    "name": "\u6307\u73af\u738b2\uff1a\u53cc\u5854\u5947\u5175\u00a0/\u00a0The Lord of the Rings: The Two Towers\u00a0/\u00a0\u9b54\u6212\u4e8c\u90e8\u66f2\uff1a\u53cc\u57ce\u5947\u8c0b ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(0,92,83)"
+                    }
+                },
+                {
+                    "name": "\u95fb\u9999\u8bc6\u5973\u4eba\u00a0/\u00a0Scent of a Woman\u00a0/\u00a0\u5973\u4eba\u9999 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(97,8,78)"
+                    }
+                },
+                {
+                    "name": "\u6b7b\u4ea1\u8bd7\u793e\u00a0/\u00a0Dead Poets Society\u00a0/\u00a0\u66b4\u96e8\u9a84\u9633(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(56,50,99)"
+                    }
+                },
+                {
+                    "name": "\u7eff\u76ae\u4e66\u00a0/\u00a0Green Book\u00a0/\u00a0\u7eff\u7c3f\u65c5\u53cb(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(135,83,135)"
+                    }
+                },
+                {
+                    "name": "\u7f57\u9a6c\u5047\u65e5\u00a0/\u00a0Roman Holiday\u00a0/\u00a0\u91d1\u679d\u7389\u53f6(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(19,6,89)"
+                    }
+                },
+                {
+                    "name": "\u5927\u95f9\u5929\u5bab\u00a0/\u00a0\u5927\u95f9\u5929\u5bab \u4e0a\u4e0b\u96c6 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(7,151,152)"
+                    }
+                },
+                {
+                    "name": "\u5929\u5802\u7535\u5f71\u9662\u00a0/\u00a0Nuovo Cinema Paradiso\u00a0/\u00a0\u661f\u5149\u4f34\u6211\u5fc3(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(53,120,50)"
+                    }
+                },
+                {
+                    "name": "\u6307\u73af\u738b1\uff1a\u62a4\u6212\u4f7f\u8005\u00a0/\u00a0The Lord of the Rings: The Fellowship of the Ring\u00a0/\u00a0\u6307\u73af\u738b1\uff1a\u9b54\u6212\u518d\u73b0 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(87,74,47)"
+                    }
+                },
+                {
+                    "name": "\u9ed1\u5ba2\u5e1d\u56fd\u00a0/\u00a0The Matrix\u00a0/\u00a022\u4e16\u7eaa\u6740\u4eba\u7f51\u7edc(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(148,85,108)"
+                    }
+                },
+                {
+                    "name": "\u6559\u72362\u00a0/\u00a0The Godfather: Part II\u00a0/\u00a0\u6559\u7236\u7eed\u96c6(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(77,160,33)"
+                    }
+                },
+                {
+                    "name": "\u72ee\u5b50\u738b\u00a0/\u00a0The Lion King\u00a0/\u00a0\u72ee\u5b50\u738b3D",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(21,13,18)"
+                    }
+                },
+                {
+                    "name": "\u8fa9\u62a4\u4eba\u00a0/\u00a0\ubcc0\ud638\uc778\u00a0/\u00a0\u9006\u6743\u5927\u72b6(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(40,2,141)"
+                    }
+                },
+                {
+                    "name": "\u996e\u98df\u7537\u5973\u00a0/\u00a0\u98f2\u98df\u7537\u5973\u00a0/\u00a0Eat Drink Man Woman",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(110,74,160)"
+                    }
+                },
+                {
+                    "name": "\u6211\u4e0d\u662f\u836f\u795e\u00a0/\u00a0\u4e2d\u56fd\u836f\u795e ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(61,159,2)"
+                    }
+                },
+                {
+                    "name": "\u6307\u73af\u738b3\uff1a\u738b\u8005\u65e0\u654c\u00a0/\u00a0The Lord of the Rings: The Return of the King\u00a0/\u00a0\u9b54\u6212\u4e09\u90e8\u66f2\uff1a\u738b\u8005\u518d\u4e34(\u53f0",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(67,102,107)"
+                    }
+                },
+                {
+                    "name": "\u8759\u8760\u4fa0\uff1a\u9ed1\u6697\u9a91\u58eb\u00a0/\u00a0The Dark Knight\u00a0/\u00a0\u8759\u8760\u4fa0\u524d\u4f202\uff1a\u9ed1\u6697\u9a91\u58eb ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(31,132,150)"
+                    }
+                },
+                {
+                    "name": "\u54c8\u5229\u00b7\u6ce2\u7279\u4e0e\u9b54\u6cd5\u77f3\u00a0/\u00a0Harry Potter and the Sorcerer's Stone\u00a0/\u00a0\u54c8\u5229\u6ce2\u72791\uff1a\u795e\u79d8\u7684\u9b54\u6cd5\u77f3(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(118,59,85)"
+                    }
+                },
+                {
+                    "name": "\u963f\u7518\u6b63\u4f20\u00a0/\u00a0Forrest Gump\u00a0/\u00a0\u798f\u96f7\u65af\u7279\u00b7\u5188\u666e",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(5,56,80)"
+                    }
+                },
+                {
+                    "name": "\u6cf0\u5766\u5c3c\u514b\u53f7\u00a0/\u00a0Titanic\u00a0/\u00a0\u94c1\u8fbe\u5c3c\u53f7(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(112,48,1)"
+                    }
+                },
+                {
+                    "name": "\u8fd9\u4e2a\u6740\u624b\u4e0d\u592a\u51b7\u00a0/\u00a0L\u00e9on\u00a0/\u00a0\u7ec8\u6781\u8ffd\u6740\u4ee4(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(2,108,31)"
+                    }
+                },
+                {
+                    "name": "\u5343\u4e0e\u5343\u5bfb\u00a0/\u00a0\u5343\u3068\u5343\u5c0b\u306e\u795e\u96a0\u3057\u00a0/\u00a0\u795e\u9690\u5c11\u5973(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(28,156,98)"
+                    }
+                },
+                {
+                    "name": "\u7f8e\u4e3d\u4eba\u751f\u00a0/\u00a0La vita \u00e8 bella\u00a0/\u00a0\u4e00\u4e2a\u5feb\u4e50\u7684\u4f20\u8bf4(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(75,122,114)"
+                    }
+                },
+                {
+                    "name": "\u661f\u9645\u7a7f\u8d8a\u00a0/\u00a0Interstellar\u00a0/\u00a0\u661f\u9645\u542f\u793a\u5f55(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(138,52,159)"
+                    }
+                },
+                {
+                    "name": "\u76d7\u68a6\u7a7a\u95f4\u00a0/\u00a0Inception\u00a0/\u00a0\u6f5c\u884c\u51f6\u95f4(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(6,29,58)"
+                    }
+                },
+                {
+                    "name": "\u8f9b\u5fb7\u52d2\u7684\u540d\u5355\u00a0/\u00a0Schindler's List\u00a0/\u00a0\u8212\u7279\u62c9\u7684\u540d\u5355(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(157,6,61)"
+                    }
+                },
+                {
+                    "name": "\u695a\u95e8\u7684\u4e16\u754c\u00a0/\u00a0The Truman Show\u00a0/\u00a0\u771f\u4ebaShow(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(60,22,84)"
+                    }
+                },
+                {
+                    "name": "\u5fe0\u72ac\u516b\u516c\u7684\u6545\u4e8b\u00a0/\u00a0Hachi: A Dog's Tale\u00a0/\u00a0\u79cb\u7530\u72ac\u516b\u5343(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(7,139,54)"
+                    }
+                },
+                {
+                    "name": "\u6d77\u4e0a\u94a2\u7434\u5e08\u00a0/\u00a0La leggenda del pianista sull'oceano\u00a0/\u00a0\u58f0\u5149\u4f34\u6211\u98de(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(106,26,26)"
+                    }
+                },
+                {
+                    "name": "\u4e09\u50bb\u5927\u95f9\u5b9d\u83b1\u575e\u00a0/\u00a03 Idiots\u00a0/\u00a0\u4e09\u4e2a\u50bb\u74dc(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(13,47,19)"
+                    }
+                },
+                {
+                    "name": "\u653e\u725b\u73ed\u7684\u6625\u5929\u00a0/\u00a0Les choristes\u00a0/\u00a0\u6b4c\u58f0\u4f34\u6211\u5fc3(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(30,63,88)"
+                    }
+                },
+                {
+                    "name": "\u673a\u5668\u4eba\u603b\u52a8\u5458\u00a0/\u00a0WALL\u00b7E\u00a0/\u00a0\u592a\u7a7a\u5947\u5175\u00b7\u5a01E(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(53,159,104)"
+                    }
+                },
+                {
+                    "name": "\u75af\u72c2\u52a8\u7269\u57ce\u00a0/\u00a0Zootopia\u00a0/\u00a0\u4f18\u517d\u5927\u90fd\u4f1a(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(27,21,150)"
+                    }
+                },
+                {
+                    "name": "\u65e0\u95f4\u9053\u00a0/\u00a0\u7121\u9593\u9053\u00a0/\u00a0Infernal Affairs ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(143,132,43)"
+                    }
+                },
+                {
+                    "name": "\u63a7\u65b9\u8bc1\u4eba\u00a0/\u00a0Witness for the Prosecution\u00a0/\u00a0\u96c4\u624d\u4f1f\u7565 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(80,69,57)"
+                    }
+                },
+                {
+                    "name": "\u5927\u8bdd\u897f\u6e38\u4e4b\u5927\u5723\u5a36\u4eb2\u00a0/\u00a0\u897f\u904a\u8a18\u5927\u7d50\u5c40\u4e4b\u4ed9\u5c65\u5947\u7de3\u00a0/\u00a0\u897f\u6e38\u8bb0\u5b8c\u7ed3\u7bc7\u4ed9\u5c65\u5947\u7f18 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(78,141,45)"
+                    }
+                },
+                {
+                    "name": "\u7194\u7089\u00a0/\u00a0\ub3c4\uac00\ub2c8\u00a0/\u00a0\u65e0\u58f0\u5450\u558a(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(100,106,155)"
+                    }
+                },
+                {
+                    "name": "\u6559\u7236\u00a0/\u00a0The Godfather\u00a0/\u00a0Mario Puzo's The Godfather",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(39,30,97)"
+                    }
+                },
+                {
+                    "name": "\u89e6\u4e0d\u53ef\u53ca\u00a0/\u00a0Intouchables\u00a0/\u00a0\u95ea\u4eae\u4eba\u751f(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(28,104,154)"
+                    }
+                },
+                {
+                    "name": "\u5f53\u5e78\u798f\u6765\u6572\u95e8\u00a0/\u00a0The Pursuit of Happyness\u00a0/\u00a0\u5bfb\u627e\u5feb\u4e50\u7684\u6545\u4e8b(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(44,58,19)"
+                    }
+                },
+                {
+                    "name": "\u5bfb\u68a6\u73af\u6e38\u8bb0\u00a0/\u00a0Coco\u00a0/\u00a0\u73a9\u8f6c\u6781\u4e50\u56ed(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(71,7,57)"
+                    }
+                },
+                {
+                    "name": "\u672b\u4ee3\u7687\u5e1d\u00a0/\u00a0The Last Emperor\u00a0/\u00a0\u672b\u4ee3\u7687\u5e1d\u6ea5\u4eea(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(91,144,10)"
+                    }
+                },
+                {
+                    "name": "\u9f99\u732b\u00a0/\u00a0\u3068\u306a\u308a\u306e\u30c8\u30c8\u30ed\u00a0/\u00a0\u90bb\u5c45\u6258\u6258\u7f57 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(131,160,116)"
+                    }
+                },
+                {
+                    "name": "\u6026\u7136\u5fc3\u52a8\u00a0/\u00a0Flipped\u00a0/\u00a0\u840c\u52a8\u9752\u6625 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(65,65,48)"
+                    }
+                },
+                {
+                    "name": "\u6d3b\u7740\u00a0/\u00a0\u4eba\u751f ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(93,99,33)"
+                    }
+                },
+                {
+                    "name": "\u640f\u51fb\u4ff1\u4e50\u90e8\u00a0/\u00a0Fight Club\u00a0/\u00a0\u640f\u51fb\u4f1a(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(44,46,4)"
+                    }
+                },
+                {
+                    "name": "\u672c\u6770\u660e\u00b7\u5df4\u987f\u5947\u4e8b\u00a0/\u00a0The Curious Case of Benjamin Button\u00a0/\u00a0\u5947\u5e7b\u9006\u7f18(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(158,99,69)"
+                    }
+                },
+                {
+                    "name": "\u7f8e\u4e3d\u5fc3\u7075\u00a0/\u00a0A Beautiful Mind\u00a0/\u00a0\u6709\u4f60\u7ec8\u751f\u7f8e\u4e3d(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(72,41,158)"
+                    }
+                },
+                {
+                    "name": "\u4e03\u5b97\u7f6a\u00a0/\u00a0Se7en\u00a0/\u00a0\u706b\u7ebf\u8ffd\u7f09\u4ee4(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(1,151,41)"
+                    }
+                },
+                {
+                    "name": "\u52a0\u52d2\u6bd4\u6d77\u76d7\u00a0/\u00a0Pirates of the Caribbean: The Curse of the Black Pearl\u00a0/\u00a0\u52a0\u52d2\u6bd4\u6d77\u76d71\uff1a\u9ed1\u73cd\u73e0\u53f7\u7684\u8bc5\u5492 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(137,37,38)"
+                    }
+                },
+                {
+                    "name": "\u4e00\u4e00\u00a0/\u00a0Yi yi ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(124,159,148)"
+                    }
+                },
+                {
+                    "name": "\u72e9\u730e\u00a0/\u00a0Jagten\u00a0/\u00a0\u8bec\u7f51(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(14,12,113)"
+                    }
+                },
+                {
+                    "name": "\u5510\u4f2f\u864e\u70b9\u79cb\u9999\u00a0/\u00a0\u5510\u4f2f\u864e\u9ede\u79cb\u9999\u00a0/\u00a0Flirting Scholar",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(116,92,108)"
+                    }
+                },
+                {
+                    "name": "7\u53f7\u623f\u7684\u793c\u7269\u00a0/\u00a07\ubc88\ubc29\uc758 \uc120\ubb3c\u00a0/\u00a0\u6206\u7238\u7684\u793c\u7269(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(78,45,113)"
+                    }
+                },
+                {
+                    "name": "\u88ab\u5acc\u5f03\u7684\u677e\u5b50\u7684\u4e00\u751f\u00a0/\u00a0\u5acc\u308f\u308c\u677e\u5b50\u306e\u4e00\u751f\u00a0/\u00a0\u82b1\u6837\u5947\u7f18(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(67,66,53)"
+                    }
+                },
+                {
+                    "name": "\u8759\u8760\u4fa0\uff1a\u9ed1\u6697\u9a91\u58eb\u5d1b\u8d77\u00a0/\u00a0The Dark Knight Rises\u00a0/\u00a0\u8759\u8760\u4fa0\u524d\u4f203\uff1a\u9ed1\u6697\u9a91\u58eb\u5d1b\u8d77 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(157,84,118)"
+                    }
+                },
+                {
+                    "name": "\u8bf7\u4ee5\u4f60\u7684\u540d\u5b57\u547c\u5524\u6211\u00a0/\u00a0Call Me by Your Name\u00a0/\u00a0\u4ee5\u4f60\u7684\u540d\u5b57\u547c\u5524\u6211(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(69,137,1)"
+                    }
+                },
+                {
+                    "name": "\u7231\u5728\u9ece\u660e\u7834\u6653\u524d\u00a0/\u00a0Before Sunrise\u00a0/\u00a0\u60c5\u7559\u534a\u5929(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(44,120,155)"
+                    }
+                },
+                {
+                    "name": "\u526a\u5200\u624b\u7231\u5fb7\u534e\u00a0/\u00a0Edward Scissorhands\u00a0/\u00a0\u5e7b\u6d77\u5947\u7f18(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(47,112,32)"
+                    }
+                },
+                {
+                    "name": "\u65ad\u80cc\u5c71\u00a0/\u00a0Brokeback Mountain\u00a0/\u00a0\u65ad\u81c2\u5c71 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(149,27,93)"
+                    }
+                },
+                {
+                    "name": "\u5165\u6b93\u5e08\u00a0/\u00a0\u304a\u304f\u308a\u3073\u3068\u00a0/\u00a0\u793c\u4eea\u5e08\u4e4b\u594f\u9e23\u66f2(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(137,103,110)"
+                    }
+                },
+                {
+                    "name": "\u7b2c\u516d\u611f\u00a0/\u00a0The Sixth Sense\u00a0/\u00a0\u9b3c\u773c(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(115,68,60)"
+                    }
+                },
+                {
+                    "name": "\u91cd\u5e86\u68ee\u6797\u00a0/\u00a0\u91cd\u6176\u68ee\u6797\u00a0/\u00a0Chungking Express",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(151,34,85)"
+                    }
+                },
+                {
+                    "name": "\u52c7\u6562\u7684\u5fc3\u00a0/\u00a0Braveheart\u00a0/\u00a0\u60ca\u4e16\u672a\u4e86\u7f18(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(136,123,65)"
+                    }
+                },
+                {
+                    "name": "\u8d85\u80fd\u9646\u6218\u961f\u00a0/\u00a0Big Hero 6\u00a0/\u00a0\u5927\u82f1\u96c4\u8054\u76df(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(131,34,2)"
+                    }
+                },
+                {
+                    "name": "\u751c\u871c\u871c\u00a0/\u00a0Comrades: Almost a Love Story",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(90,75,142)"
+                    }
+                },
+                {
+                    "name": "\u5e7d\u7075\u516c\u4e3b\u00a0/\u00a0\u3082\u306e\u306e\u3051\u59eb\u00a0/\u00a0\u9b54\u6cd5\u516c\u4e3b(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(119,39,108)"
+                    }
+                },
+                {
+                    "name": "\u7231\u5728\u65e5\u843d\u9ec4\u660f\u65f6\u00a0/\u00a0Before Sunset\u00a0/\u00a0\u65e5\u843d\u5df4\u9ece(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(65,97,159)"
+                    }
+                },
+                {
+                    "name": "\u83ca\u6b21\u90ce\u7684\u590f\u5929\u00a0/\u00a0\u83ca\u6b21\u90ce\u306e\u590f\u00a0/\u00a0\u83ca\u6b21\u90ce\u4e4b\u590f ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(99,127,76)"
+                    }
+                },
+                {
+                    "name": "\u5bc4\u751f\u866b\u00a0/\u00a0\uae30\uc0dd\ucda9\u00a0/\u00a0\u5bc4\u751f\u4e0a\u6d41(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(42,97,110)"
+                    }
+                },
+                {
+                    "name": "\u501f\u4e1c\u897f\u7684\u5c0f\u4eba\u963f\u8389\u57c3\u8482\u00a0/\u00a0\u501f\u308a\u3050\u3089\u3057\u306e\u30a2\u30ea\u30a8\u30c3\u30c6\u30a3\u00a0/\u00a0\u501f\u7269\u5c11\u5973\u827e\u8389\u7f07(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(57,126,35)"
+                    }
+                },
+                {
+                    "name": "\u6d88\u5931\u7684\u7231\u4eba\u00a0/\u00a0Gone Girl\u00a0/\u00a0\u5931\u8e2a\u7684\u5973\u5b69 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(141,37,26)"
+                    }
+                },
+                {
+                    "name": "\u9633\u5149\u707f\u70c2\u7684\u65e5\u5b50\u00a0/\u00a0In the Heat of the Sun",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(67,89,22)"
+                    }
+                },
+                {
+                    "name": "\u5929\u4f7f\u7231\u7f8e\u4e3d\u00a0/\u00a0Le fabuleux destin d'Am\u00e9lie Poulain\u00a0/\u00a0\u827e\u871c\u8389\u7684\u5f02\u60f3\u4e16\u754c(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(127,39,151)"
+                    }
+                },
+                {
+                    "name": "\u5b8c\u7f8e\u7684\u4e16\u754c\u00a0/\u00a0A Perfect World\u00a0/\u00a0\u5f3a\u76d7\u4fdd\u9573",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(52,30,155)"
+                    }
+                },
+                {
+                    "name": "\u5029\u5973\u5e7d\u9b42\u00a0/\u00a0\u5029\u5973\u5e7d\u9b42(87\u7248) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(146,76,68)"
+                    }
+                },
+                {
+                    "name": "\u54c8\u5229\u00b7\u6ce2\u7279\u4e0e\u5bc6\u5ba4\u00a0/\u00a0Harry Potter and the Chamber of Secrets\u00a0/\u00a0\u54c8\u5229\u6ce2\u72792\uff1a\u6d88\u5931\u7684\u5bc6\u5ba4(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(107,85,46)"
+                    }
+                },
+                {
+                    "name": "\u7ea2\u8fa3\u6912\u00a0/\u00a0\u30d1\u30d7\u30ea\u30ab\u00a0/\u00a0\u76d7\u68a6\u4fa6\u63a2(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(102,66,66)"
+                    }
+                },
+                {
+                    "name": "\u7a7f\u6761\u7eb9\u7761\u8863\u7684\u7537\u5b69\u00a0/\u00a0The Boy in the Striped Pajamas\u00a0/\u00a0\u7a7f\u6761\u7eb9\u8863\u670d\u7684\u7537\u5b69 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(17,68,34)"
+                    }
+                },
+                {
+                    "name": "\u6740\u4eba\u56de\u5fc6\u00a0/\u00a0\uc0b4\uc778\uc758 \ucd94\uc5b5\u00a0/\u00a0\u8c0b\u6740\u56de\u5fc6 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(6,65,95)"
+                    }
+                },
+                {
+                    "name": "\u7a83\u542c\u98ce\u66b4\u00a0/\u00a0Das Leben der Anderen\u00a0/\u00a0\u7a83\u542c\u8005(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(154,61,91)"
+                    }
+                },
+                {
+                    "name": "\u60c5\u4e66\u00a0/\u00a0Love Letter\u00a0/\u00a0When I Close My Eyes ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(129,18,45)"
+                    }
+                },
+                {
+                    "name": "\u4e24\u6746\u5927\u70df\u67aa\u00a0/\u00a0Lock, Stock and Two Smoking Barrels\u00a0/\u00a0\u591f\u59dc\u56db\u5c0f\u5f3a(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(20,68,140)"
+                    }
+                },
+                {
+                    "name": "\u897f\u897f\u91cc\u7684\u7f8e\u4e3d\u4f20\u8bf4\u00a0/\u00a0Mal\u00e8na\u00a0/\u00a0\u771f\u7231\u4f34\u6211\u884c(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(58,115,32)"
+                    }
+                },
+                {
+                    "name": "\u97f3\u4e50\u4e4b\u58f0\u00a0/\u00a0The Sound of Music\u00a0/\u00a0\u4ed9\u4e50\u98d8\u98d8\u5904\u5904\u95fb(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(44,158,131)"
+                    }
+                },
+                {
+                    "name": "\u770b\u4e0d\u89c1\u7684\u5ba2\u4eba\u00a0/\u00a0Contratiempo\u00a0/\u00a0\u6b7b\u65e0\u5bf9\u8bc1(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(7,0,134)"
+                    }
+                },
+                {
+                    "name": "\u963f\u51e1\u8fbe\u00a0/\u00a0Avatar\u00a0/\u00a0",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(76,51,82)"
+                    }
+                },
+                {
+                    "name": "\u54c8\u5229\u00b7\u6ce2\u7279\u4e0e\u6b7b\u4ea1\u5723\u5668(\u4e0b)\u00a0/\u00a0Harry Potter and the Deathly Hallows: Part 2\u00a0/\u00a0\u54c8\u5229\u6ce2\u72797\uff1a\u6b7b\u795e\u7684\u5723\u72692(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(145,117,62)"
+                    }
+                },
+                {
+                    "name": "\u62ef\u6551\u5927\u5175\u745e\u6069\u00a0/\u00a0Saving Private Ryan\u00a0/\u00a0\u96f7\u9706\u6551\u5175(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(101,134,57)"
+                    }
+                },
+                {
+                    "name": "\u98de\u8d8a\u75af\u4eba\u9662\u00a0/\u00a0One Flew Over the Cuckoo's Nest\u00a0/\u00a0\u98de\u8d8a\u675c\u9e43\u7a9d(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(146,149,95)"
+                    }
+                },
+                {
+                    "name": "\u5c0f\u978b\u5b50\u00a0/\u00a0\u0628\u0686\u0647 \u0647\u0627\u06cc \u0622\u0633\u0645\u0627\u0646\u00a0/\u00a0\u5929\u5802\u7684\u5b69\u5b50 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(11,50,159)"
+                    }
+                },
+                {
+                    "name": "\u6c89\u9ed8\u7684\u7f94\u7f8a\u00a0/\u00a0The Silence of the Lambs\u00a0/\u00a0\u6c89\u9ed8\u7684\u7f94\u7f8a",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(113,47,103)"
+                    }
+                },
+                {
+                    "name": "\u5e03\u8fbe\u4f69\u65af\u5927\u996d\u5e97\u00a0/\u00a0The Grand Budapest Hotel\u00a0/\u00a0\u5e03\u8fbe\u4f69\u65af\u5927\u9152\u5e97(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(140,82,13)"
+                    }
+                },
+                {
+                    "name": "\u529f\u592b\u00a0/\u00a0\u529f\u592b3D ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(66,150,28)"
+                    }
+                },
+                {
+                    "name": "\u7981\u95ed\u5c9b\u00a0/\u00a0Shutter Island\u00a0/\u00a0\u4e0d\u8d66\u5c9b(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(47,41,97)"
+                    }
+                },
+                {
+                    "name": "\u8774\u8776\u6548\u5e94\u00a0/\u00a0The Butterfly Effect\u00a0/\u00a0\u8774\u8776\u6548\u5e94",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(51,37,159)"
+                    }
+                },
+                {
+                    "name": "\u81f4\u547d\u9b54\u672f\u00a0/\u00a0The Prestige\u00a0/\u00a0\u6b7b\u4ea1\u9b54\u6cd5(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(155,93,33)"
+                    }
+                },
+                {
+                    "name": "\u54c8\u5229\u00b7\u6ce2\u7279\u4e0e\u963f\u5179\u5361\u73ed\u7684\u56da\u5f92\u00a0/\u00a0Harry Potter and the Prisoner of Azkaban\u00a0/\u00a0\u54c8\u5229\u6ce2\u72793\uff1a\u963f\u5179\u5361\u73ed\u7684\u9003\u72af(\u6e2f",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(151,83,89)"
+                    }
+                },
+                {
+                    "name": "\u5fc3\u7075\u6355\u624b\u00a0/\u00a0Good Will Hunting\u00a0/\u00a0\u9a84\u9633\u4f3c\u6211(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(113,137,88)"
+                    }
+                },
+                {
+                    "name": "\u8d85\u8131\u00a0/\u00a0Detachment\u00a0/\u00a0\u4eba\u95f4\u5e08\u683c(\u53f0)",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(50,77,96)"
+                    }
+                },
+                {
+                    "name": "\u4f4e\u4fd7\u5c0f\u8bf4\u00a0/\u00a0Pulp Fiction\u00a0/\u00a0\u5371\u9669\u4eba\u7269(\u6e2f) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(133,80,85)"
+                    }
+                },
+                {
+                    "name": "\u6d77\u8c5a\u6e7e\u00a0/\u00a0The Cove\u00a0/\u00a0\u8840\u8272\u6d77\u6e7e(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(67,77,14)"
+                    }
+                },
+                {
+                    "name": "\u6469\u767b\u65f6\u4ee3\u00a0/\u00a0Modern Times\u00a0/\u00a0The Masses ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(59,77,116)"
+                    }
+                },
+                {
+                    "name": "\u6625\u5149\u4e4d\u6cc4\u00a0/\u00a0\u6625\u5149\u4e4d\u6d29\u00a0/\u00a0\u4e00\u8d77\u5feb\u4e50 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(129,69,52)"
+                    }
+                },
+                {
+                    "name": "\u7f8e\u56fd\u5f80\u4e8b\u00a0/\u00a0Once Upon a Time in America\u00a0/\u00a0\u56db\u6d77\u5144\u5f1f(\u53f0) ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(39,33,107)"
+                    }
+                },
+                {
+                    "name": "\u559c\u5267\u4e4b\u738b\u00a0/\u00a0\u559c\u5287\u4e4b\u738b\u00a0/\u00a0King of Comedy",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(87,149,96)"
+                    }
+                },
+                {
+                    "name": "\u81f4\u547dID\u00a0/\u00a0Identity\u00a0/\u00a0\u6740\u4eba\u6e38\u620f ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(84,37,134)"
+                    }
+                },
+                {
+                    "name": "\u71c3\u60c5\u5c81\u6708\u00a0/\u00a0Legends of the Fall\u00a0/\u00a0\u79cb\u65e5\u4f20\u5947 ",
+                    "value": 1,
+                    "textStyle": {
+                        "color": "rgb(65,100,116)"
+                    }
+                }
+            ],
+            "width": "400px",
+            "height": "300px",
+            "drawOutOfBound": false,
+            "textStyle": {
+                "emphasis": {}
+            },
+            "label": {
+                "show": true,
+                "margin": 8
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [],
+            "selected": {},
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1,
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "title": [
+        {
+            "show": true,
+            "text": "\u7535\u5f71\u540d\u79f0\u5206\u6790-\u8bcd\u4e91\u56fe",
+            "target": "blank",
+            "subtarget": "blank",
+            "left": "center",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false,
+            "textStyle": {
+                "fontSize": 20
+            }
+        }
+    ]
+};
+        chart_wc1.setOption(option_wc1);
+    </script>
+<br/>                        <style>
+            .fl-table {
+                margin: 20px;
+                border-radius: 5px;
+                font-size: 12px;
+                border: none;
+                border-collapse: collapse;
+                max-width: 100%;
+                white-space: nowrap;
+                word-break: keep-all;
+            }
+
+            .fl-table th {
+                text-align: left;
+                font-size: 20px;
+            }
+
+            .fl-table tr {
+                display: table-row;
+                vertical-align: inherit;
+                border-color: inherit;
+            }
+
+            .fl-table tr:hover td {
+                background: #00d1b2;
+                color: #F8F8F8;
+            }
+
+            .fl-table td, .fl-table th {
+                border-style: none;
+                border-top: 1px solid #dbdbdb;
+                border-left: 1px solid #dbdbdb;
+                border-bottom: 3px solid #dbdbdb;
+                border-right: 1px solid #dbdbdb;
+                padding: .5em .55em;
+                font-size: 15px;
+            }
+
+            .fl-table td {
+                border-style: none;
+                font-size: 15px;
+                vertical-align: center;
+                border-bottom: 1px solid #dbdbdb;
+                border-left: 1px solid #dbdbdb;
+                border-right: 1px solid #dbdbdb;
+                height: 30px;
+            }
+
+            .fl-table tr:nth-child(even) {
+                background: #F8F8F8;
+            }
+        </style>
+        <div id="d1451384de2f4b5fa9eee7c86ccc4682" class="chart-container" style="">
+            <p class="title" > </p>
+            <p class="subtitle" > </p>
+            <table align="left" padding="20px" style="background:#293441; width:450px; height:350px; font-size:10px; color:#C0C0C0;padding:3px;">
+    <thead>
+        <tr>
+            <th>电影名称</th>
+            <th>电影评分</th>
+            <th>评分人数</th>
+            <th>上映年份</th>
+            <th>一句话短评</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>肖申克的救赎 / The Shawshank Redemption / 月黑高飞(港) </td>
+            <td>9.7</td>
+            <td>2969823</td>
+            <td>1994</td>
+            <td>希望让人自由。</td>
+        </tr>
+        <tr>
+            <td>茶馆 / The Teahouse</td>
+            <td>9.6</td>
+            <td>157903</td>
+            <td>1982(中国大陆)</td>
+            <td>nan</td>
+        </tr>
+        <tr>
+            <td>控方证人 / Witness for the Prosecution / 雄才伟略 </td>
+            <td>9.6</td>
+            <td>589493</td>
+            <td>1957</td>
+            <td>比利·怀德满分作品。</td>
+        </tr>
+        <tr>
+            <td>霸王别姬 / 再见，我的妾 </td>
+            <td>9.6</td>
+            <td>2194512</td>
+            <td>1993</td>
+            <td>风华绝代。</td>
+        </tr>
+        <tr>
+            <td>辛德勒的名单 / Schindler&#x27;s List / 舒特拉的名单(港) </td>
+            <td>9.5</td>
+            <td>1145838</td>
+            <td>1993</td>
+            <td>拯救一个人，就是拯救整个世界。</td>
+        </tr>
+        <tr>
+            <td>高山下的花环 / 卫国军魂(港) </td>
+            <td>9.5</td>
+            <td>97394</td>
+            <td>1984(中国大陆)</td>
+            <td>nan</td>
+        </tr>
+        <tr>
+            <td>背靠背，脸对脸 / 背对背，脸对脸 </td>
+            <td>9.5</td>
+            <td>141778</td>
+            <td>1994</td>
+            <td>nan</td>
+        </tr>
+        <tr>
+            <td>美丽人生 / La vita è bella / 一个快乐的传说(港) </td>
+            <td>9.5</td>
+            <td>1356435</td>
+            <td>1997</td>
+            <td>最美的谎言。</td>
+        </tr>
+        <tr>
+            <td>阿甘正传 / Forrest Gump / 福雷斯特·冈普</td>
+            <td>9.5</td>
+            <td>2213292</td>
+            <td>1994</td>
+            <td>一部美国近现代史。</td>
+        </tr>
+        <tr>
+            <td>泰坦尼克号 / Titanic / 铁达尼号(港</td>
+            <td>9.5</td>
+            <td>2249533</td>
+            <td>1997</td>
+            <td>失去的才是永恒的。 </td>
+        </tr>
+    </tbody>
+</table>
+        </div>
+
+<br/>                <div id="scatter1" class="chart-container" style="width:600px; height:450px; "></div>
+    <script>
+        var chart_scatter1 = echarts.init(
+            document.getElementById('scatter1'), 'chalk', {renderer: 'canvas'});
+        var option_scatter1 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "effectScatter",
+            "showEffectOn": "render",
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2,
+                "period": 7
+            },
+            "symbol": "diamond",
+            "symbolSize": 10,
+            "data": [
+                [
+                    "1994",
+                    9.7
+                ],
+                [
+                    "1993",
+                    9.6
+                ],
+                [
+                    "1994",
+                    9.5
+                ],
+                [
+                    "1997",
+                    9.5
+                ],
+                [
+                    "1994",
+                    9.4
+                ],
+                [
+                    "2001",
+                    9.4
+                ],
+                [
+                    "1997",
+                    9.5
+                ],
+                [
+                    "2014",
+                    9.4
+                ],
+                [
+                    "2010",
+                    9.4
+                ],
+                [
+                    "1993",
+                    9.5
+                ],
+                [
+                    "1998",
+                    9.4
+                ],
+                [
+                    "2009",
+                    9.4
+                ],
+                [
+                    "1998",
+                    9.3
+                ],
+                [
+                    "2009",
+                    9.2
+                ],
+                [
+                    "2004",
+                    9.3
+                ],
+                [
+                    "2008",
+                    9.3
+                ],
+                [
+                    "2016",
+                    9.2
+                ],
+                [
+                    "2002",
+                    9.3
+                ],
+                [
+                    "1957",
+                    9.6
+                ],
+                [
+                    "1995",
+                    9.2
+                ],
+                [
+                    "2011",
+                    9.4
+                ],
+                [
+                    "1972",
+                    9.3
+                ],
+                [
+                    "2011",
+                    9.3
+                ],
+                [
+                    "2006",
+                    9.2
+                ],
+                [
+                    "2017",
+                    9.1
+                ],
+                [
+                    "1987",
+                    9.3
+                ],
+                [
+                    "1988",
+                    9.2
+                ],
+                [
+                    "2010",
+                    9.1
+                ],
+                [
+                    "1994",
+                    9.3
+                ],
+                [
+                    "2001",
+                    9.2
+                ],
+                [
+                    "2008",
+                    9.2
+                ],
+                [
+                    "2003",
+                    9.3
+                ],
+                [
+                    "2018",
+                    9.0
+                ],
+                [
+                    "1939",
+                    9.3
+                ],
+                [
+                    "2009",
+                    9.1
+                ],
+                [
+                    "2013",
+                    9.3
+                ],
+                [
+                    "1957",
+                    9.4
+                ],
+                [
+                    "2004",
+                    9.1
+                ],
+                [
+                    "2010",
+                    9.0
+                ],
+                [
+                    "2018",
+                    9.1
+                ],
+                [
+                    "2016",
+                    9.0
+                ],
+                [
+                    "2002",
+                    9.1
+                ],
+                [
+                    "1986",
+                    9.2
+                ],
+                [
+                    "2000",
+                    9.3
+                ],
+                [
+                    "2015",
+                    9.3
+                ],
+                [
+                    "2012",
+                    9.1
+                ],
+                [
+                    "2002",
+                    9.3
+                ],
+                [
+                    "1995",
+                    9.0
+                ],
+                [
+                    "2002",
+                    9.2
+                ],
+                [
+                    "1992",
+                    9.1
+                ],
+                [
+                    "1989",
+                    9.2
+                ],
+                [
+                    "2018",
+                    8.9
+                ],
+                [
+                    "1953",
+                    9.1
+                ],
+                [
+                    "1961(\u4e2d\u56fd\u5927\u9646)",
+                    9.4
+                ],
+                [
+                    "1988",
+                    9.2
+                ],
+                [
+                    "2001",
+                    9.1
+                ],
+                [
+                    "1999",
+                    9.1
+                ],
+                [
+                    "1974",
+                    9.3
+                ],
+                [
+                    "1994",
+                    9.1
+                ],
+                [
+                    "2013",
+                    9.2
+                ],
+                [
+                    "1994",
+                    9.2
+                ],
+                [
+                    "1999",
+                    9.0
+                ],
+                [
+                    "2008",
+                    9.0
+                ],
+                [
+                    "2001",
+                    9.1
+                ],
+                [
+                    "2008",
+                    9.2
+                ],
+                [
+                    "2006",
+                    9.2
+                ],
+                [
+                    "1995",
+                    8.9
+                ],
+                [
+                    "1998",
+                    9.1
+                ],
+                [
+                    "2000",
+                    8.9
+                ],
+                [
+                    "1965",
+                    9.1
+                ],
+                [
+                    "2016",
+                    8.8
+                ],
+                [
+                    "2009",
+                    8.8
+                ],
+                [
+                    "2011",
+                    9.0
+                ],
+                [
+                    "1998",
+                    9.1
+                ],
+                [
+                    "1975",
+                    9.1
+                ],
+                [
+                    "1997",
+                    9.2
+                ],
+                [
+                    "1991",
+                    8.9
+                ],
+                [
+                    "2014",
+                    8.9
+                ],
+                [
+                    "2004",
+                    8.8
+                ],
+                [
+                    "2010",
+                    8.9
+                ],
+                [
+                    "2004",
+                    8.9
+                ],
+                [
+                    "2006",
+                    8.9
+                ],
+                [
+                    "2004",
+                    8.9
+                ],
+                [
+                    "1997",
+                    8.9
+                ],
+                [
+                    "2011",
+                    9.0
+                ],
+                [
+                    "1994",
+                    8.9
+                ],
+                [
+                    "2009",
+                    9.3
+                ],
+                [
+                    "1936",
+                    9.3
+                ],
+                [
+                    "1997",
+                    9.0
+                ],
+                [
+                    "1984",
+                    9.2
+                ],
+                [
+                    "1999",
+                    8.8
+                ],
+                [
+                    "2003",
+                    8.9
+                ],
+                [
+                    "2003",
+                    8.9
+                ],
+                [
+                    "2006",
+                    9.1
+                ],
+                [
+                    "1995",
+                    8.8
+                ],
+                [
+                    "2002",
+                    8.9
+                ],
+                [
+                    "2003",
+                    8.8
+                ],
+                [
+                    "2000",
+                    9.1
+                ],
+                [
+                    "2012",
+                    9.1
+                ],
+                [
+                    "1993",
+                    8.7
+                ],
+                [
+                    "2013",
+                    8.9
+                ],
+                [
+                    "2006",
+                    8.9
+                ],
+                [
+                    "2012",
+                    8.9
+                ],
+                [
+                    "2017",
+                    8.8
+                ],
+                [
+                    "1995",
+                    8.8
+                ],
+                [
+                    "1990",
+                    8.7
+                ],
+                [
+                    "2005",
+                    8.8
+                ],
+                [
+                    "2008",
+                    8.9
+                ],
+                [
+                    "1999",
+                    8.9
+                ],
+                [
+                    "1994",
+                    8.8
+                ],
+                [
+                    "1995",
+                    8.9
+                ],
+                [
+                    "2014",
+                    8.7
+                ],
+                [
+                    "1996",
+                    8.9
+                ],
+                [
+                    "1997",
+                    8.9
+                ],
+                [
+                    "2004",
+                    8.9
+                ],
+                [
+                    "1999",
+                    8.9
+                ],
+                [
+                    "2019",
+                    8.8
+                ],
+                [
+                    "2010",
+                    8.9
+                ],
+                [
+                    "2014",
+                    8.7
+                ],
+                [
+                    "1994",
+                    8.8
+                ],
+                [
+                    "2001",
+                    8.7
+                ],
+                [
+                    "1993",
+                    9.1
+                ],
+                [
+                    "1987",
+                    8.8
+                ],
+                [
+                    "2014",
+                    9.0
+                ],
+                [
+                    "2004",
+                    9.1
+                ],
+                [
+                    "2013",
+                    8.8
+                ],
+                [
+                    "1997",
+                    9.1
+                ],
+                [
+                    "1995",
+                    8.9
+                ],
+                [
+                    "2005",
+                    8.8
+                ],
+                [
+                    "2010",
+                    8.8
+                ],
+                [
+                    "2004",
+                    8.8
+                ],
+                [
+                    "2015",
+                    8.9
+                ],
+                [
+                    "2015",
+                    9.0
+                ],
+                [
+                    "1990",
+                    9.0
+                ],
+                [
+                    "2001",
+                    8.8
+                ],
+                [
+                    "2010",
+                    8.9
+                ],
+                [
+                    "2005",
+                    8.7
+                ],
+                [
+                    "2013",
+                    8.9
+                ],
+                [
+                    "2011",
+                    8.9
+                ],
+                [
+                    "1982(\u4e2d\u56fd\u5927\u9646)",
+                    9.6
+                ],
+                [
+                    "2016",
+                    8.6
+                ],
+                [
+                    "2012",
+                    8.8
+                ],
+                [
+                    "2010",
+                    8.7
+                ],
+                [
+                    "2010",
+                    8.8
+                ],
+                [
+                    "2009",
+                    9.0
+                ],
+                [
+                    "1979",
+                    9.2
+                ],
+                [
+                    "2007",
+                    8.7
+                ],
+                [
+                    "1994",
+                    8.7
+                ],
+                [
+                    "2003",
+                    8.8
+                ],
+                [
+                    "1993",
+                    9.0
+                ],
+                [
+                    "2014",
+                    8.8
+                ],
+                [
+                    "2018",
+                    8.6
+                ],
+                [
+                    "1993",
+                    8.7
+                ],
+                [
+                    "2000",
+                    8.8
+                ],
+                [
+                    "2015",
+                    8.8
+                ],
+                [
+                    "2001",
+                    9.0
+                ],
+                [
+                    "2011",
+                    8.8
+                ],
+                [
+                    "1954",
+                    9.3
+                ],
+                [
+                    "2016",
+                    8.7
+                ],
+                [
+                    "2013",
+                    8.7
+                ],
+                [
+                    "1960",
+                    9.0
+                ],
+                [
+                    "2003",
+                    8.8
+                ],
+                [
+                    "2016",
+                    8.5
+                ],
+                [
+                    "2004",
+                    8.7
+                ],
+                [
+                    "2017",
+                    8.7
+                ],
+                [
+                    "2013",
+                    8.8
+                ],
+                [
+                    "2014",
+                    8.7
+                ],
+                [
+                    "2013",
+                    8.7
+                ],
+                [
+                    "2007",
+                    8.8
+                ],
+                [
+                    "1986",
+                    8.6
+                ],
+                [
+                    "2002",
+                    9.0
+                ],
+                [
+                    "1984",
+                    8.9
+                ],
+                [
+                    "2013",
+                    8.9
+                ],
+                [
+                    "1991",
+                    8.8
+                ],
+                [
+                    "2015",
+                    8.8
+                ],
+                [
+                    "1999",
+                    8.9
+                ],
+                [
+                    "2004",
+                    8.9
+                ],
+                [
+                    "2019",
+                    8.7
+                ],
+                [
+                    "2000",
+                    8.7
+                ],
+                [
+                    "1994",
+                    9.5
+                ],
+                [
+                    "2006",
+                    8.6
+                ],
+                [
+                    "2020",
+                    8.7
+                ],
+                [
+                    "1952",
+                    9.1
+                ],
+                [
+                    "1968",
+                    8.9
+                ],
+                [
+                    "2010",
+                    8.7
+                ],
+                [
+                    "2003",
+                    8.7
+                ],
+                [
+                    "1987",
+                    9.2
+                ],
+                [
+                    "2014",
+                    8.8
+                ],
+                [
+                    "2018",
+                    8.7
+                ],
+                [
+                    "2012",
+                    8.7
+                ],
+                [
+                    "2014",
+                    8.7
+                ],
+                [
+                    "2002",
+                    8.6
+                ],
+                [
+                    "2009",
+                    8.5
+                ],
+                [
+                    "1991",
+                    8.9
+                ],
+                [
+                    "2008",
+                    8.6
+                ],
+                [
+                    "2003",
+                    9.0
+                ],
+                [
+                    "1994",
+                    8.6
+                ],
+                [
+                    "1989",
+                    8.7
+                ],
+                [
+                    "2007",
+                    8.7
+                ],
+                [
+                    "2017",
+                    8.7
+                ],
+                [
+                    "2010",
+                    8.9
+                ],
+                [
+                    "2004",
+                    8.9
+                ],
+                [
+                    "2010",
+                    8.6
+                ],
+                [
+                    "1931",
+                    9.3
+                ],
+                [
+                    "2003",
+                    8.5
+                ],
+                [
+                    "2011",
+                    8.5
+                ],
+                [
+                    "2016",
+                    8.6
+                ],
+                [
+                    "1988",
+                    8.7
+                ],
+                [
+                    "2018",
+                    8.6
+                ],
+                [
+                    "1991",
+                    8.9
+                ],
+                [
+                    "2010",
+                    8.5
+                ],
+                [
+                    "1993",
+                    8.6
+                ],
+                [
+                    "2001",
+                    8.7
+                ],
+                [
+                    "2004",
+                    8.5
+                ],
+                [
+                    "1966",
+                    8.9
+                ],
+                [
+                    "1991",
+                    8.8
+                ],
+                [
+                    "2015",
+                    8.7
+                ],
+                [
+                    "2016",
+                    8.4
+                ],
+                [
+                    "1950",
+                    8.8
+                ],
+                [
+                    "1992",
+                    8.7
+                ],
+                [
+                    "1987",
+                    9.3
+                ],
+                [
+                    "2009",
+                    8.7
+                ],
+                [
+                    "2008",
+                    8.6
+                ],
+                [
+                    "1997",
+                    8.8
+                ],
+                [
+                    "2021",
+                    8.6
+                ],
+                [
+                    "1988",
+                    8.7
+                ],
+                [
+                    "2013",
+                    8.6
+                ],
+                [
+                    "2017",
+                    8.6
+                ],
+                [
+                    "2010",
+                    8.5
+                ],
+                [
+                    "2003",
+                    8.7
+                ],
+                [
+                    "2015",
+                    8.7
+                ],
+                [
+                    "2006",
+                    8.7
+                ],
+                [
+                    "2005",
+                    8.7
+                ],
+                [
+                    "2015",
+                    8.5
+                ],
+                [
+                    "2008",
+                    8.8
+                ],
+                [
+                    "2015",
+                    8.8
+                ],
+                [
+                    "1940",
+                    8.8
+                ],
+                [
+                    "2001",
+                    8.8
+                ],
+                [
+                    "2013",
+                    8.6
+                ],
+                [
+                    "2004",
+                    8.7
+                ],
+                [
+                    "2007",
+                    8.5
+                ],
+                [
+                    "1984(\u4e2d\u56fd\u5927\u9646)",
+                    9.5
+                ],
+                [
+                    "2018",
+                    8.6
+                ],
+                [
+                    "2009",
+                    8.7
+                ],
+                [
+                    "2002",
+                    8.6
+                ],
+                [
+                    "1990",
+                    8.5
+                ],
+                [
+                    "2008",
+                    8.6
+                ],
+                [
+                    "1991",
+                    8.8
+                ],
+                [
+                    "2013",
+                    8.6
+                ],
+                [
+                    "1994",
+                    8.7
+                ]
+            ],
+            "label": {
+                "show": false,
+                "position": "right",
+                "margin": 8
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                ""
+            ],
+            "selected": {},
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1,
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "xAxis": [
+        {
+            "name": "\u5e74\u4efd",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "min": 1930,
+            "max": 2025,
+            "minInterval": 0,
+            "splitLine": {
+                "show": false,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "dotted",
+                    "color": "white"
+                }
+            },
+            "data": null
+        }
+    ],
+    "yAxis": [
+        {
+            "name": "\u8bc4\u5206",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "min": 8,
+            "max": 10,
+            "minInterval": 0,
+            "splitLine": {
+                "show": false,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "dotted"
+                }
+            }
+        }
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u5e74\u4efd-\u8bc4\u5206\u5206\u5e03\u56fe",
+            "target": "blank",
+            "subtarget": "blank",
+            "left": "center",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
+        }
+    ],
+    "visualMap": {
+        "show": false,
+        "type": "continuous",
+        "min": 9,
+        "max": 10,
+        "inRange": {
+            "color": [
+                "#50a3ba",
+                "#eac763",
+                "#d94e5d"
+            ]
+        },
+        "calculable": true,
+        "inverse": false,
+        "splitNumber": 5,
+        "hoverLink": true,
+        "orient": "vertical",
+        "padding": 5,
+        "showLabel": true,
+        "itemWidth": 20,
+        "itemHeight": 140,
+        "borderWidth": 0
+    }
+};
+        chart_scatter1.setOption(option_scatter1);
+    </script>
+<br/>                <div id="bar_cmt1" class="chart-container" style="width:450px; height:350px; "></div>
+    <script>
+        var chart_bar_cmt1 = echarts.init(
+            document.getElementById('bar_cmt1'), 'chalk', {renderer: 'canvas'});
+        var option_bar_cmt1 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "bar",
+            "name": "\u8bc4\u8bba\u6570\u91cf",
+            "legendHoverLink": true,
+            "data": [
+                1906303,
+                1999343,
+                2116417,
+                2153614,
+                2194512,
+                2213292,
+                2249533,
+                2296699,
+                2344790,
+                2969823
+            ],
+            "realtimeSort": false,
+            "showBackground": false,
+            "stackStrategy": "samesign",
+            "cursor": "pointer",
+            "barMinHeight": 0,
+            "barCategoryGap": "20%",
+            "barGap": "30%",
+            "large": false,
+            "largeThreshold": 400,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "clip": true,
+            "zlevel": 0,
+            "z": 2,
+            "label": {
+                "show": true,
+                "position": "right",
+                "margin": 8
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u8bc4\u8bba\u6570\u91cf"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "right",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1,
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "xAxis": [
+        {
+            "name": "\u8bc4\u8bba",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "axisLabel": {
+                "show": true,
+                "rotate": 0,
+                "margin": 8,
+                "fontSize": 8
+            },
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": false,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            }
+        }
+    ],
+    "yAxis": [
+        {
+            "name": "\u7535\u5f71",
+            "show": true,
+            "scale": false,
+            "nameLocation": "end",
+            "nameGap": 15,
+            "gridIndex": 0,
+            "axisLabel": {
+                "show": true,
+                "rotate": 45,
+                "margin": 8,
+                "fontSize": 7
+            },
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": false,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid"
+                }
+            },
+            "data": [
+                "\u661f\u9645\u7a7f\u8d8a\u00a0/\u00a0Interstellar\u00a0/\u00a0\u661f\u9645\u542f\u793a\u5f55(\u6e2f) ",
+                "\u75af\u72c2\u52a8\u7269\u57ce\u00a0/\u00a0Zootopia\u00a0/\u00a0\u4f18\u517d\u5927\u90fd\u4f1a(\u6e2f) ",
+                "\u76d7\u68a6\u7a7a\u95f4\u00a0/\u00a0Inception\u00a0/\u00a0\u6f5c\u884c\u51f6\u95f4(\u6e2f) ",
+                "\u6211\u4e0d\u662f\u836f\u795e\u00a0/\u00a0\u4e2d\u56fd\u836f\u795e ",
+                "\u9738\u738b\u522b\u59ec\u00a0/\u00a0\u518d\u89c1\uff0c\u6211\u7684\u59be ",
+                "\u963f\u7518\u6b63\u4f20\u00a0/\u00a0Forrest Gump\u00a0/\u00a0\u798f\u96f7\u65af\u7279\u00b7\u5188\u666e",
+                "\u6cf0\u5766\u5c3c\u514b\u53f7\u00a0/\u00a0Titanic\u00a0/\u00a0\u94c1\u8fbe\u5c3c\u53f7(\u6e2f",
+                "\u5343\u4e0e\u5343\u5bfb\u00a0/\u00a0\u5343\u3068\u5343\u5c0b\u306e\u795e\u96a0\u3057\u00a0/\u00a0\u795e\u9690\u5c11\u5973(\u53f0) ",
+                "\u8fd9\u4e2a\u6740\u624b\u4e0d\u592a\u51b7\u00a0/\u00a0L\u00e9on\u00a0/\u00a0\u7ec8\u6781\u8ffd\u6740\u4ee4(\u53f0) ",
+                "\u8096\u7533\u514b\u7684\u6551\u8d4e\u00a0/\u00a0The Shawshank Redemption\u00a0/\u00a0\u6708\u9ed1\u9ad8\u98de(\u6e2f) "
+            ]
+        }
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u8bc4\u8bba\u6570TOP10\u4f5c\u8005-\u6761\u5f62\u56fe",
+            "target": "blank",
+            "subtarget": "blank",
+            "left": "center",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
+        }
+    ],
+    "toolbox": {
+        "show": false,
+        "orient": "horizontal",
+        "itemSize": 15,
+        "itemGap": 10,
+        "left": "80%",
+        "feature": {
+            "saveAsImage": {
+                "type": "png",
+                "backgroundColor": "auto",
+                "connectedBackgroundColor": "#fff",
+                "show": true,
+                "title": "\u4fdd\u5b58\u4e3a\u56fe\u7247",
+                "pixelRatio": 1
+            },
+            "restore": {
+                "show": true,
+                "title": "\u8fd8\u539f"
+            },
+            "dataView": {
+                "show": true,
+                "title": "\u6570\u636e\u89c6\u56fe",
+                "readOnly": false,
+                "lang": [
+                    "\u6570\u636e\u89c6\u56fe",
+                    "\u5173\u95ed",
+                    "\u5237\u65b0"
+                ],
+                "backgroundColor": "#fff",
+                "textareaColor": "#fff",
+                "textareaBorderColor": "#333",
+                "textColor": "#000",
+                "buttonColor": "#c23531",
+                "buttonTextColor": "#fff"
+            },
+            "dataZoom": {
+                "show": true,
+                "title": {
+                    "zoom": "\u533a\u57df\u7f29\u653e",
+                    "back": "\u533a\u57df\u7f29\u653e\u8fd8\u539f"
+                },
+                "icon": {},
+                "filterMode": "filter"
+            },
+            "magicType": {
+                "show": true,
+                "type": [
+                    "line",
+                    "bar",
+                    "stack",
+                    "tiled"
+                ],
+                "title": {
+                    "line": "\u5207\u6362\u4e3a\u6298\u7ebf\u56fe",
+                    "bar": "\u5207\u6362\u4e3a\u67f1\u72b6\u56fe",
+                    "stack": "\u5207\u6362\u4e3a\u5806\u53e0",
+                    "tiled": "\u5207\u6362\u4e3a\u5e73\u94fa"
+                },
+                "icon": {}
+            }
+        }
+    }
+};
+        chart_bar_cmt1.setOption(option_bar_cmt1);
+    </script>
+<br/>    </div>
+    <script>
+            $('#adaf090071834f4e8f4e51da165e9195').resizable().draggable().css('border-style', 'dashed').css('border-width', '1px');$("#adaf090071834f4e8f4e51da165e9195>div:nth-child(1)").width("100%").height("100%");
+            $('#bar_cmt2').resizable().draggable().css('border-style', 'dashed').css('border-width', '1px');$("#bar_cmt2>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#bar_cmt2'), function() { chart_bar_cmt2.resize()});
+            $('#pie1').resizable().draggable().css('border-style', 'dashed').css('border-width', '1px');$("#pie1>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#pie1'), function() { chart_pie1.resize()});
+            $('#wc1').resizable().draggable().css('border-style', 'dashed').css('border-width', '1px');$("#wc1>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#wc1'), function() { chart_wc1.resize()});
+            $('#d1451384de2f4b5fa9eee7c86ccc4682').resizable().draggable().css('border-style', 'dashed').css('border-width', '1px');$("#d1451384de2f4b5fa9eee7c86ccc4682>div:nth-child(1)").width("100%").height("100%");
+            $('#scatter1').resizable().draggable().css('border-style', 'dashed').css('border-width', '1px');$("#scatter1>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#scatter1'), function() { chart_scatter1.resize()});
+            $('#bar_cmt1').resizable().draggable().css('border-style', 'dashed').css('border-width', '1px');$("#bar_cmt1>div:nth-child(1)").width("100%").height("100%");
+            new ResizeSensor(jQuery('#bar_cmt1'), function() { chart_bar_cmt1.resize()});
+            var charts_id = ['adaf090071834f4e8f4e51da165e9195','bar_cmt2','pie1','wc1','d1451384de2f4b5fa9eee7c86ccc4682','scatter1','bar_cmt1'];
+function downloadCfg () {
+    const fileName = 'chart_config.json'
+    let downLink = document.createElement('a')
+    downLink.download = fileName
+
+    let result = []
+    for(let i=0; i<charts_id.length; i++) {
+        chart = $('#'+charts_id[i])
+        result.push({
+            cid: charts_id[i],
+            width: chart.css("width"),
+            height: chart.css("height"),
+            top: chart.offset().top + "px",
+            left: chart.offset().left + "px"
+        })
+    }
+
+    let blob = new Blob([JSON.stringify(result)])
+    downLink.href = URL.createObjectURL(blob)
+    document.body.appendChild(downLink)
+    downLink.click()
+    document.body.removeChild(downLink)
+}
+    </script>
+</body>
+</html>
